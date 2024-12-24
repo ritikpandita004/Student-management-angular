@@ -1,0 +1,346 @@
+<div class="container card p-4 shadow mt-2 mb-5" >
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="m-2">Add School</h3>
+    </div>
+  </div>
+
+<hr>
+  <div class="row">
+    <div class="col-md-10 mt-2">
+      <form [formGroup]="addSchool" (submit)="  submitSchoolData()" enctype="multipart/form-data">
+
+        <div class="row">
+          <div class="col-md-5">
+            <div class="mb-3">
+              <img src="assets/images (4).jpeg" class="rounded float-left m-2" alt="..." >
+              <label for="formFile" class="form-label"> </label>
+              <input class="form-control" type="file" id="formFile" formControlName="schoolImage" (change)="onFileChange($event)">
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">School Name <span class="text-danger">*</span></label>
+            <input
+                type="text"
+                class="form-control"
+                formControlName="SchoolName"
+                placeholder="Enter school name ">
+                <div *ngIf="addSchool.get('SchoolName')?.errors?.['required'] && addSchool.get('SchoolName')?.touched" class="text-danger">
+                  School name is required.
+                </div>
+                <div *ngIf="addSchool.get('SchoolName')?.errors?.['pattern'] && addSchool.get('SchoolName')?.touched" class="text-danger">
+                  School name should only contain letters.
+                </div>
+
+
+
+        </div>
+
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">School Code<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="SchoolCode" placeholder="Enter school code">
+            <div *ngIf="addSchool.get('SchoolCode')?.errors?.['required'] && addSchool.get('SchoolCode')?.touched" class="text-danger">
+              School code is required.
+            </div>
+            <div *ngIf="addSchool.get('SchoolCode')?.errors?.['pattern'] && addSchool.get('SchoolCode')?.touched" class="text-danger">
+              School code should be numeric.
+            </div>
+
+          </div>
+
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">School Year <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="schoolYear" placeholder="Enter school year">
+
+            <div *ngIf="addSchool.get('schoolYear')?.errors?.['required'] && addSchool.get('schoolYear')?.touched" class="text-danger">
+              School year is required.
+            </div>
+            <div *ngIf="addSchool.get('schoolYear')?.errors?.['pattern'] && addSchool.get('schoolYear')?.touched" class="text-danger">
+              School year should be numeric.
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="row mt-3">
+
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">Office Email<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="OfficeEmail" placeholder="Enter office email">
+
+            <div *ngIf="addSchool.get('OfficeEmail')?.invalid && addSchool.get('OfficeEmail')?.touched" class="text-danger">
+              <span *ngIf="addSchool.get('OfficeEmail')?.errors?.['required']"> Email is required</span>
+              <span *ngIf="addSchool.get('OfficeEmail')?.errors?.['pattern']">Email must be valid email</span>
+
+              </div>
+
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">Office Phone Number<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="OfficePhoneNumber" placeholder="Enter office phone number">
+
+            <div *ngIf="addSchool.get('OfficePhoneNumber')?.errors?.['required'] && addSchool.get('OfficePhoneNumber')?.touched" class="text-danger">
+              Office phone number is required.
+            </div>
+
+            <div *ngIf="addSchool.get('OfficePhoneNumber')?.errors?.['minlength']&&addSchool.get('OfficePhoneNumber')?.touched" class="text-danger" >The Phone number must be of 10 digits</div>
+
+            <div *ngIf="addSchool.get('officePhoneNumber')?.errors?.['maxlength']&&addSchool.get('OfficePhoneNumber')?.touched" class="text-danger">Phone number must be of 10 digits</div>
+
+            <div *ngIf="addSchool.get('OfficePhoneNumber')?.errors?.['pattern'] && addSchool.get('OfficePhoneNumber')?.touched" class="text-danger">
+            Enter valid phone number
+            </div>
+
+
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">Office Fax Number
+              <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="OfficeFaxNumber" placeholder="Enter office fax number">
+
+            <div *ngIf="addSchool.get('OfficeFaxNumber')?.errors?.['required'] && addSchool.get('OfficeFaxNumber')?.touched" class="text-danger">
+              Office Fax number is required.
+            </div>
+
+            <div *ngIf="addSchool.get('OfficeFaxNumber')?.errors?.['minlength']&&addSchool.get('OfficeFaxNumber')?.touched" class="text-danger" >The Fax number must be of 10 digits</div>
+
+            <div *ngIf="addSchool.get('OfficeFaxNumber')?.errors?.['maxlength']&&addSchool.get('OfficeFaxNumber')?.touched" class="text-danger">Fax number must be of 10 digits</div>
+
+            <div *ngIf="addSchool.get('OfficeFaxNumber')?.errors?.['pattern'] && addSchool.get('OfficeFaxNumber')?.touched" class="text-danger">
+            Enter valid Fax number
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="col-md-5  mt-3 mb-3">
+          <h4>Physical Address</h4>
+         </div>
+         <div class="row">
+          <div class="form-group col-md-6">
+            <label for="inputAddress">Address<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="physical_address" placeholder="1234 Main St">
+            <div *ngIf="addSchool.get('physical_address')?.errors?.['required'] && addSchool.get('physical_address')?.touched" class="text-danger">
+              Physical address is required.
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="inputAddress">District<span class="text-danger">*</span></label>
+            <select class="form-control" formControlName="physical_district" placeholder="Select a district">
+
+              <option *ngFor="let district of districtData" [value]="district.id">
+                {{ district.district_name }}
+              </option>
+            </select>
+          </div>
+
+         </div>
+
+
+
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="inputCity"> City<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputCity" formControlName="physical_city" placeholder="{{'PLACEHOLDER.CITY' | translate }}">
+            <div *ngIf="addSchool.get('physical_city')?.errors?.['required'] && addSchool.get('physical_city')?.touched" class="text-danger">
+              City is required.
+            </div>
+            <div *ngIf="addSchool.get('physical_city')?.errors?.['pattern'] && addSchool.get('physical_city')?.touched" class="text-danger">
+              City name should only contain letters.
+            </div>
+
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputState">State<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputState" formControlName="physical_state" placeholder="{{'PLACEHOLDER.STATE' | translate }}">
+            <div *ngIf="addSchool.get('physical_state')?.errors?.['required'] && addSchool.get('physical_state')?.touched" class="text-danger">
+              State is required.
+            </div>
+            <div *ngIf="addSchool.get('physical_state')?.errors?.['pattern'] && addSchool.get('physical_state')?.touched" class="text-danger">
+              State name should only contain letters.
+            </div>
+
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="physical_zip" id="inputZip"placeholder="{{'PLACEHOLDER.ZIP' | translate }}">
+            <div *ngIf="addSchool.get('physical_zip')?.errors?.['required'] && addSchool.get('physical_zip')?.touched" class="text-danger">
+              Zip code is required.
+            </div>
+            <div *ngIf="addSchool.get('physical_zip')?.errors?.['pattern'] && addSchool.get('physical_zip')?.touched" class="text-danger">
+              Zip code should be 6 digits.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck" (change)="mailingAddressToPhysicalAddress($event)">
+            <label class="form-check-label" for="gridCheck">
+            {{"DISTRICT.SAME_AS_PHYSICAL_ADDRESS" | translate }}
+            </label>
+          </div>
+        </div>
+        <hr>
+        <div class="col-md-5  mt-3 mb-3">
+          <h4> Mailing Address</h4>
+         </div>
+
+         <div class="form-group">
+          <label for="inputAddress">Address<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="inputAddress" formControlName="mailing_address" placeholder="1234 Main St">
+
+
+          <div *ngIf="addSchool.get('mailing_address')?.errors?.['required'] && addSchool.get('mailing_address')?.touched" class="text-danger">
+            Mailing address is required.
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="mailing_city" id="inputCity" placeholder="{{'PLACEHOLDER.CITY' | translate }}">
+
+            <div *ngIf="addSchool.get('mailing_city')?.errors?.['required'] && addSchool.get('mailing_city')?.touched" class="text-danger">
+              City is required.
+            </div>
+            <div *ngIf="addSchool.get('mailing_city')?.errors?.['pattern'] && addSchool.get('mailing_city')?.touched" class="text-danger">
+              City name should only contain letters.
+            </div>
+
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputState" formControlName="mailing_state" placeholder="{{'PLACEHOLDER.STATE' | translate }}">
+            <div *ngIf="addSchool.get('mailing_state')?.errors?.['required'] && addSchool.get('mailing_state')?.touched" class="text-danger">
+              State is required.
+            </div>
+            <div *ngIf="addSchool.get('mailing_state')?.errors?.['pattern'] && addSchool.get('mailing_state')?.touched" class="text-danger">
+              State name should only contain letters.
+            </div>
+
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip
+              <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputZip" formControlName="mailing_zip" placeholder="{{'PLACEHOLDER.ZIP' | translate }}">
+            <div *ngIf="addSchool.get('physical_zip')?.errors?.['required'] && addSchool.get('physical_zip')?.touched" class="text-danger">
+              Zip code is required.
+            </div>
+            <div *ngIf="addSchool.get('physical_zip')?.errors?.['pattern'] && addSchool.get('physical_zip')?.touched" class="text-danger">
+              Zip code should be 6 digits.
+            </div>
+
+          </div>
+        </div>
+        <hr>
+        <div class="col-md-5  mt-3 mb-3">
+          <h4>Principal Information</h4>
+         </div>
+
+         <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="inputAddress">First Name<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="principal_first_name" placeholder="{{'PLACEHOLDER.FIRST_NAME' | translate }}">
+
+            <div *ngIf="addSchool.get('principal_first_name')?.invalid && addSchool.get('principal_first_name')?.touched" class="text-danger">
+              <span *ngIf="addSchool.get('principal_first_name')?.errors?.['required']">    {{"ERRORS.DISTRICT.FIRST_NAME"|translate}}</span>
+              <span *ngIf="addSchool.get('principal_first_name')?.errors?.['pattern']">{{"ERRORS.DISTRICT.FIRST_NAME_VALID"|translate}}</span>
+            </div>
+
+
+
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="inputAddress">Last Name<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="principal_last_name" placeholder="{{'PLACEHOLDER.LAST_NAME' | translate }}">
+
+            <div *ngIf="addSchool.get('principal_last_name')?.invalid && addSchool.get('principal_last_name')?.touched" class="text-danger">
+              <span *ngIf="addSchool.get('principal_last_name')?.errors?.['required']"> {{"ERRORS.DISTRICT.LAST_NAME"|translate}}</span>
+              <span *ngIf="addSchool.get('principal_last_name')?.errors?.['pattern']">{{"ERRORS.DISTRICT.LAST_NAME_VALID"|translate}}</span>
+            </div>
+
+
+
+          </div>
+         </div>
+
+         <div class="row">
+          <div class="col-md-6 mb-4">
+            <label for="inputAddress">Phone Number<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="principal_phoneNumber" placeholder="{{'PLACEHOLDER.PHONE_NUMBER' | translate }}">
+
+            <div *ngIf="addSchool.get('principal_phoneNumber')?.invalid && addSchool.get('principal_phoneNumber')?.touched" class="text-danger">
+              <div *ngIf="addSchool.get('principal_phoneNumber')?.errors?.['required']">{{"ERRORS.DISTRICT.PHONE_NUMBER"|translate}}</div>
+              <div *ngIf="addSchool.get('principal_phoneNumber')?.errors?.['minlength']">{{"ERRORS.DISTRICT.MIN_LENGTH"|translate}}</div>
+              <div *ngIf="addSchool.get('principal_phoneNumber')?.errors?.['maxlength']">{{"ERRORS.DISTRICT.MAX_LENGTH"|translate}}</div>
+              <div *ngIf="addSchool.get('principal_phoneNumber')?.errors?.['pattern']">{{"ERRORS.DISTRICT.INVALID_PHONE_NUMBER"|translate}}</div>
+            </div>
+
+
+
+
+
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputAddress">Email<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="principal_email" placeholder="{{'PLACEHOLDER.EMAIL' | translate }}">
+            <div *ngIf="addSchool.get('principal_email')?.invalid && addSchool.get('principal_email')?.touched" class="text-danger">
+              <span *ngIf="addSchool.get('principal_email')?.errors?.['required']"> {{"ERRORS.DISTRICT.EMAIL"|translate}}</span>
+              <span *ngIf="addSchool.get('principal_email')?.errors?.['pattern']">{{"ERRORS.DISTRICT.EMAIl_VALID"|translate}}</span>
+
+              </div>
+
+
+
+          </div>
+         </div>
+
+         <div class="form-group">
+          <label for="exampleFormControlTextarea1"></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="notes" rows="3" placeholder="Notes"></textarea>
+        </div>
+
+
+            <div class="row mt-3 mb-3">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck" formControlName="using_district_calender_district_holiday" >
+                    <label class="form-check-label" for="gridCheck">
+                      Use District Calendar and District Holiday Schedule
+
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row  mb-3 mt-2">
+              <div class="col-md-6 d-grid">
+                <button  type="button" class="btn btn-secondary" (click)="backToSchool()">Cancel</button>
+              </div>
+              <div class="col-md-6 d-grid mt-2 ">
+                <button type="submit" class="btn btn-primary" [disabled]="addSchool.invalid">Add</button>
+              </div>
+            </div>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,86 @@
+/* General Container Styling */
+.container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Form container with a clean white background */
+.profile-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Heading styling */
+h3 {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Label styling */
+label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Input and Select field styling */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #dcdfe6;
+  padding: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus effect */
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+/* Error message styling */
+.text-danger {
+  font-size: 0.875rem;
+  color: #e74c3c;
+}
+
+/* Button styling */
+button {
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button[disabled] {
+  background-color: #c6d3e1;
+  cursor: not-allowed;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+}

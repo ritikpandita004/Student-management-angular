@@ -1,0 +1,56 @@
+<!-- Toggle Button for Small Screens -->
+<button class="btn btn-link d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+  <i class="fas fa-bars"></i>
+</button>
+
+<!-- Sidebar -->
+<div class="offcanvas-md offcanvas-start stylish-sidebar" id="sidebarMenu">
+  <a href="/" class="logo">
+    <img src="assets/infostride1.jpeg" alt="Logo">
+  </a>
+  <hr>
+  <ul class="nav flex-column">
+    <li class="nav-item mb-2">
+      <a routerLink="/dashboard"  class="nav-link">
+        <i class="bi bi-house-door"></i> <span>Home</span>
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a routerLink="/dashboard/district" routerLinkActive="active" class="nav-link">
+        <i class="bi bi-pin-map"></i> <span>District</span>
+      </a>
+    </li>
+
+    <li class="nav-item mb-2">
+      <a routerLink="/dashboard/district-calender" routerLinkActive="active" class="nav-link">
+        <i class="bi bi-calendar2-date"></i> <span>District Calendar</span>
+      </a>
+    </li>
+
+    <li class="nav-item mb-2">
+      <a routerLink="/dashboard/schoolInfo" routerLinkActive="active" class="nav-link">
+        <i class="bi bi-receipt-cutoff"></i> <span>School Information</span>
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a routerLink="/dashboard/school-calendar/all" routerLinkActive="active" class="nav-link">
+        <i class="bi bi-calendar2-date"></i> <span>School Calendar</span>
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a routerLink="/dashboard/admin" routerLinkActive="active" class="nav-link">
+        <i class="bi bi-person-vcard-fill"></i> <span>Admin Setup/Edit</span>
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a routerLink="/dashboard/teacher" routerLinkActive="active" class="nav-link">
+        <i class="bi bi-person-vcard"></i> <span>Teacher Setup/Edit</span>
+      </a>
+    </li>
+    <li class="nav-item mb-2">
+      <a routerLink="/dashboard/student" routerLinkActive="active" class="nav-link">
+        <i class="bi bi-person-workspace"></i> <span>Student Setup/Edit</span>
+      </a>
+    </li>
+  </ul>
+</div>

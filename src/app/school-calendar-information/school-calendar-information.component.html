@@ -1,0 +1,94 @@
+<div class="container card p-4 shadow mt-5 mb-5" >
+  <div class="row">
+    <div class="col-md-10">
+      <h3>School Calendar Information</h3>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-end align-items-end mb-2 ">
+      <button style="background-color: #0d6efd;  padding: 5px 20px; color: white;" type="button" (click)="addSchoolCalender(schoolId)"
+              class="btn btn-pink btn-sm">
+         Add
+      </button>
+   </div>
+
+  </div>
+
+
+    <p>Click the " + Add" button to add a new calendar year.</p>
+    <p>Edit School Calendar Information below. Can only change dates when status is Active or Open.</p>
+    <p> <span class="text-danger font-weight-bold">WARNING: </span>Changing dates will affect student attendance percentages.</p>
+    <div class="table-responsive">
+    <table class="table table-hover">
+      <thead class="table-light">
+        <tr class="text-center">
+          <th scope="col">School Name	</th>
+          <th scope="col">School Calendar Name</th>
+          <th scope="col">Start</th>
+          <th scope="col">End</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let calendar of schoolCalendar" class="text-center">
+          <td>{{calendar.school_name}}</td>
+          <td>{{calendar.School_calendar_name}}</td>
+          <td>{{calendar.start_date}}</td>
+          <td>{{calendar.end_date}}</td>
+          <td>
+            <i class="bi" [ngClass]="{
+              'bi-check-circle-fill text-success': calendar.status === 'Active',
+              'bi-x-circle-fill text-danger': calendar.status === 'Inactive'
+            }" (click)="toggleSchoolCalendarStatus(calendar)" style="cursor: pointer; font-size: 1.2rem;">
+            </i>
+          </td>
+          <td class="edit-delete-btn">
+            <a (click)="editSchoolCalendar(calendar.id)" class="text-primary"><i class="bi bi-pencil-square fs-5 me-2"></i></a>
+            <a (click)="deleteSchoolCalendar(calendar.id)" class="text-danger"><i class="bi bi-trash fs-5"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+     <!-- Modal for confirming delete -->
+     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ 'DISTRICT.CONFIRM_DISTRICT_DELETE' | translate }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this Calendar?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'COMMON.CANCEL' | translate }}</button>
+            <button type="button" class="btn confirm-btn" (click)="confirmDelete()">{{ 'COMMON.CONFIRM' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for confirming status change -->
+    <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ 'DISTRICT_CALENDER.CONFIRMATION' | translate }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to change the status of this School Calendar?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'COMMON.CANCEL' | translate }}</button>
+            <button type="button" class="btn confirm-btn" (click)="confirmStatusChange()">{{ 'COMMON.CONFIRM' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+
+

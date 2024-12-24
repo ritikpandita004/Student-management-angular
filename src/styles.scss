@@ -1,0 +1,87 @@
+@import '~ngx-toastr/toastr.css';
+
+
+
+
+.toast-success {
+  background-color: #28a745;
+}
+.toast-error {
+  background-color: #dc3545;
+}
+.toast-warning {
+  background-color: #ffc107;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial', sans-serif;
+}
+
+
+form{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.edit-delete-btn{
+  cursor: pointer;
+}
+
+
+
+tr{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.plusicon {
+  cursor: pointer;
+  color: white !important;
+  background-color: #0d6efd !important;
+  border-color: #0d6efd !important;
+  border-radius: 60%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  transition: background-color 0.3s ease;
+}
+
+.plusicon:hover {
+  background-color:#0d6efd !important;
+}
+
+
+
+form{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h4{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h3{
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+
+
+
+
+.edit-delete-btn {
+  cursor: pointer;
+}
+
+
+
+
+.font{
+  font-family: Arial, Helvetica, sans-serif;
+}
+

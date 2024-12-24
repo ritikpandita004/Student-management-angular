@@ -1,0 +1,17 @@
+<div class="d-flex flex-column flex-md-row">
+  <!-- Sidebar Component -->
+  <div class="order-1 order-md-0 flex-shrink-0" style="width: 100%; max-width: 250px;">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="flex-grow-1">
+    <!-- Navbar Component -->
+    <app-navbar></app-navbar>
+
+    <!-- Main Content -->
+    <div class="container-fluid p-3" id="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.card {
+  width: 100%; /* Allow the card to take full width of its container */
+  max-width: 18rem; /* Set a maximum width */
+  margin: auto; /* Center the card horizontally */
+}
+
+.card-body {
+  padding: 1rem; /* Ensure consistent padding */
+}
+
+/* Optional: Adjust the image size if using an image inside the card */
+.card-img-top {
+  width: 100%; /* Make image responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Media Queries for Extra Responsiveness */
+@media (max-width: 576px) {
+  .card {
+    margin: 1rem; /* Add some margin on smaller screens */
+  }
+}

@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+
+      <form [formGroup]="Profile" (ngSubmit)="profileData()" class="profile-form p-4 border rounded shadow-lg">
+        <h3 class="text-center mb-4 mt-3 mb-2">{{ 'COMMON.PROFILE_DETAILS' | translate }}</h3>
+        <div class="row">
+          <div class="form-group col-md-6 mt-3">
+            <label for="name">{{ 'COMMON.NAME' | translate }}</label>
+            <input type="text" formControlName="name" class="form-control" id="name" placeholder="{{ 'PLACEHOLDER.NAME' | translate }}">
+            <div *ngIf="Profile.get('name')?.invalid && (Profile.get('name')?.touched || Profile.get('name')?.dirty)" class="text-danger">
+              {{ 'COMMON.NAME_REQUIRED' | translate }}
+            </div>
+          </div>
+
+          <div class="form-group col-md-6 mt-3">
+            <label for="exampleInputEmail1">{{ 'COMMON.EMAIL' | translate }}</label>
+            <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="{{ 'PLACEHOLDER.EMAIL' | translate }}" [disabled]="true" readonly>
+            <div *ngIf="Profile.get('email')?.invalid && (Profile.get('email')?.touched || Profile.get('email')?.dirty)" class="text-danger">
+              <div *ngIf="Profile.get('email')?.errors?.['required']">{{ 'ERRORS.EMAIL.EMAIL_REQUIRED' | translate }}</div>
+              <div *ngIf="Profile.get('email')?.errors?.['email']">{{ 'ERRORS.EMAIL.EMAIL_INVALID' | translate }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6 mt-3">
+            <label for="state">{{ 'COMMON.STATE' | translate }}</label>
+            <input type="text" formControlName="State" class="form-control" id="State" placeholder="{{ 'PLACEHOLDER.STATE' | translate }}">
+            <div *ngIf="Profile.get('State')?.invalid && (Profile.get('State')?.touched || Profile.get('State')?.dirty)" class="text-danger">
+              {{ 'COMMON.STATE_CHANGE' | translate }}
+            </div>
+          </div>
+
+          <div class="form-group col-md-6 mt-3">
+            <label for="city">{{ 'COMMON.CITY' | translate }}</label>
+            <input type="text" formControlName="City" class="form-control" id="City" placeholder="{{ 'PLACEHOLDER.CITY' | translate }}">
+            <div *ngIf="Profile.get('City')?.invalid && (Profile.get('City')?.touched || Profile.get('City')?.dirty)" class="text-danger">
+              {{ 'COMMON.CITY_REQUIRED' | translate }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6 mt-3">
+            <label for="zip">{{ 'COMMON.ZIP' | translate }}</label>
+            <input type="text" formControlName="Zipcode" class="form-control" id="Zipcode" placeholder="{{ 'PLACEHOLDER.ZIP' | translate }}">
+            <div *ngIf="Profile.get('Zipcode')?.invalid && (Profile.get('Zipcode')?.touched || Profile.get('Zipcode')?.dirty)" class="text-danger">
+              {{ 'COMMON.ZIPCODE_REQUIRED' | translate }}
+            </div>
+          </div>
+
+          <div class="form-group col-md-6 mt-3">
+            <label for="lang">{{ 'COMMON.LANGUAGE' | translate }}</label>
+            <select formControlName="language" class="form-control" id="language">
+              <option value="" disabled selected>{{ 'PLACEHOLDER.LANGUAGE' | translate }}</option>
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn w-100 mt-3 " [disabled]="Profile.invalid">{{ 'COMMON.Edit your details' | translate }}</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,253 @@
+<div class="container card p-4 shadow">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="m-2">Edit School</h3>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-10 mt-2">
+      <form [formGroup]="schoolForm" (submit)="updateSchool()">
+
+        <div class="row">
+          <div class="col-md-5">
+            <div class="mb-3">
+              <img [src]="imageUrl" class="rounded float-left m-2" alt="...">
+
+              <label for="formFile" class="form-label"> </label>
+              <input type="file" (change)="onImageChange($event)" formControlName="image" />
+
+
+
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">School Name <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="school_name" placeholder="Enter school name ">
+
+
+          </div>
+
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">School Code<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="school_code" placeholder="Enter school code">
+
+          </div>
+
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">School Year <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="school_year" placeholder="Enter school year">
+
+          </div>
+
+        </div>
+
+
+
+        <div class="row mt-3">
+
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">Office Email<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="office_email" placeholder="Enter office email">
+
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">Office Phone Number<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="office_phone_number"
+              placeholder="Enter office phone number">
+
+
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">Office Fax Number
+              <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="office_fax_number"
+              placeholder="Enter office fax number">
+
+
+          </div>
+        </div>
+        <hr>
+        <div class="col-md-5  mt-3 mb-3">
+          <h4>Physical Address</h4>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="inputAddress">Address<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="physical_address"
+              placeholder="1234 Main St">
+
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="inputAddress">District<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="physical_address"
+              placeholder="1234 Main St">
+
+          </div>
+        </div>
+
+
+
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="inputCity"> City<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputCity" formControlName="physical_city"
+              placeholder="{{'PLACEHOLDER.CITY' | translate }}">
+
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputState">State<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputState" formControlName="physical_state"
+              placeholder="{{'PLACEHOLDER.STATE' | translate }}">
+
+
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="physical_zip" id="inputZip"
+              placeholder="{{'PLACEHOLDER.ZIP' | translate }}">
+
+          </div>
+
+        </div>
+
+
+        <hr>
+        <div class="col-md-5  mt-3 mb-3">
+          <h4> Mailing Address</h4>
+        </div>
+
+        <div class="form-group">
+          <label for="inputAddress">Address<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="inputAddress" formControlName="mailing_address"
+            placeholder="1234 Main St">
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="mailing_city" id="inputCity"
+              placeholder="{{'PLACEHOLDER.CITY' | translate }}">
+
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputState" formControlName="mailing_state"
+              placeholder="{{'PLACEHOLDER.STATE' | translate }}">
+
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip
+              <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputZip" formControlName="mailing_zip"
+              placeholder="{{'PLACEHOLDER.ZIP' | translate }}">
+
+          </div>
+        </div>
+        <hr>
+        <div class="col-md-5  mt-3 mb-3">
+          <h4>Principal Information</h4>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="inputAddress">First Name<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="principal_first_name"
+              placeholder="{{'PLACEHOLDER.FIRST_NAME' | translate }}">
+
+
+
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="inputAddress">Last Name<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="principal_last_name"
+              placeholder="{{'PLACEHOLDER.LAST_NAME' | translate }}">
+
+
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <label for="inputAddress">Phone Number<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="principal_phone_number"
+              placeholder="{{'PLACEHOLDER.PHONE_NUMBER' | translate }}">
+
+
+
+
+
+
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputAddress">Email<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="email"
+              placeholder="{{'PLACEHOLDER.EMAIL' | translate }}">
+
+
+
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1"></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="notes" rows="3"
+            placeholder="Notes"></textarea>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mt-3">
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  Use District Calendar and District Holiday Schedule
+
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-5  mt-2 ms-5">
+            <button type="button" class="btn btn-primary justify-content-center"  style="width: 200px;" (click)="addEditSchoolCalendar(schoolId)"> Add/Edit Calendar</button>
+          </div>
+          <div class="col-md-5 mt-2 ms-5" >
+            <button type="submit" class="btn btn-primary justify-content-center" style="width: 200px;" (click)="ClassroomView()" > Add/Edit Classroom</button>
+          </div>
+
+        </div>
+        <div class="row mt-5 mb-3">
+          <div class="col-md-6 d-grid">
+            <button type="button" class="btn btn-secondary ">Cancel</button>
+          </div>
+          <div class="col-md-6 d-grid">
+            <button type="submit" class="btn btn-primary">Edit</button>
+
+          </div>
+        </div>
+
+
+
+
+
+
+      </form>
+    </div>
+  </div>
+</div>

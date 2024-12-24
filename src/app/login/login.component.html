@@ -1,0 +1,126 @@
+<div style="display: flex; justify-content: flex-end;">
+  <button (click)="switchLanguage('en')">English</button>
+  <button (click)="switchLanguage('hi')">हिन्दी</button>
+</div>
+
+
+<div class="container">
+  <div class="login-box">
+    <div class="left">
+      <div>
+        <img src="assets/infostride.jpeg" class="logo">
+      </div>
+
+      <div class="login-form">
+
+
+        <h5 style="margin-bottom: 10px;">{{ 'COMMON.HELLO'|translate }}, <span>{{ 'LOGIN.WELCOME' | translate }}</span>
+        </h5>
+        <form [formGroup]="loginForm" (ngSubmit)="loginData()">
+
+          <input type="email" [class.is-invalid]="loginError['email'].invalid && loginError['email'].touched"
+            [placeholder]="'PLACEHOLDER.EMAIL' | translate" name="email" required formControlName="email">
+
+          <div class="alert alert-danger" *ngIf="loginError['email'].invalid && loginError['email'].touched">
+
+
+            <div *ngIf="loginError['email'].errors && loginError['email'].errors['required']">
+              <span *ngIf="loginError['email'].errors && loginError['email'].errors['required']">✗</span>
+              {{'ERRORS.EMAIL.EMAIL_REQUIRED'|translate}}
+            </div>
+
+            <div *ngIf="loginError['email'].errors && loginError['email'].errors['pattern']">
+              <span *ngIf="loginError['email'].errors && loginError['email'].errors['pattern']">✗</span>
+
+              {{'ERRORS.EMAIL.EMAIL_INVALID'|translate}}
+            </div>
+
+          </div>
+
+          <!-- <input type="password"
+                [class.is-invalid]="loginError['password'].invalid && loginError['password'].touched"
+                placeholder="{{'PLACEHOLDER.PASSWORD' | translate}}"
+                required
+                formControlName="password"> -->
+
+          <div class="password-container">
+            <input type="{{ hide ? 'password' : 'text' }}"
+              [class.is-invalid]="loginError['password'].invalid && loginError['password'].touched"
+              placeholder="{{'PLACEHOLDER.PASSWORD' | translate}}" required formControlName="password"
+              id="passwordInput">
+
+            <i class="fa" [ngClass]="hide ? 'fa-eye' : 'fa-eye-slash'" (mousedown)="toggleVisibility(true)"
+              (mouseup)="toggleVisibility(false)" (mouseleave)="toggleVisibility(false)"></i>
+          </div>
+
+
+
+
+
+          <div class="alert alert-danger" *ngIf="loginError['password'].invalid && loginError['password'].touched">
+
+            <div [ngClass]="{'valid': isValidLength, 'invalid': !isValidLength}">
+              <span *ngIf="!isValidLength">✗</span>
+              <span *ngIf="isValidLength">✓</span>
+              {{'ERRORS.PASSWORD.PASSWORD_8_CHAR'|translate}}
+            </div>
+
+
+            <div [ngClass]="{'valid': isUppercaseValid, 'invalid': !isUppercaseValid}">
+              <span *ngIf="!isUppercaseValid">✗</span>
+              <span *ngIf="isUppercaseValid">✓</span>
+              {{'ERRORS.PASSWORD.PASSWORD_UPPERCASE'|translate}}
+            </div>
+
+
+            <div [ngClass]="{'valid': isLowercaseValid, 'invalid': !isLowercaseValid}">
+              <span *ngIf="!isLowercaseValid">✗</span>
+              <span *ngIf="isLowercaseValid">✓</span>
+              {{'ERRORS.PASSWORD.PASSWORD_LOWERCASE'|translate}}
+            </div>
+
+
+            <div [ngClass]="{'valid': isNumberValid, 'invalid': !isNumberValid}">
+              <span *ngIf="!isNumberValid">✗</span>
+              <span *ngIf="isNumberValid">✓</span>
+              {{'ERRORS.PASSWORD.PASSWORD_NUMBER'|translate}}
+            </div>
+
+            <div [ngClass]="{'valid': isSpecialCharValid, 'invalid': !isSpecialCharValid}">
+              <span *ngIf="!isSpecialCharValid">✗</span>
+              <span *ngIf="isSpecialCharValid">✓</span>
+              {{'ERRORS.PASSWORD.PASSWORD_SPECIAL_CHAR'|translate}}
+            </div>
+
+          </div>
+
+          <div class="options">
+
+            <a (click)="fogotPassword()" class="forgot-password">{{"COMMON.FORGOT_PASSWORD"|translate}}?</a>
+          </div>
+          <div class="buttons">
+            <button type="submit" [class.disabled]="loginForm.invalid" class="login-btn">{{'COMMON.LOG_IN'|
+              translate}}</button>
+
+          </div>
+        </form>
+          <div class="social" style="justify-content: center; text-align: center;">
+
+          <a href="#" class="fab fa-instagram"
+          style="font-size: 24px; margin: 0 10px; margin-top: 20px !important; color: #E4405F; text-decoration: none;"></a>
+
+          <a href="#" class="fab fa-twitter"
+          style="font-size: 24px; margin: 0 10px; margin-top: 20px !important; color: #1DA1F2; text-decoration: none;"></a>
+
+             <a href="#" class="fab fa-facebook-f"
+             style="font-size: 24px; margin: 0 10px; margin-top: 20px !important; color: #1877F2; text-decoration: none;"></a>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <img src="assets/premium_photo-1681487916420-8f50a06eb60e.avif" alt="Welcome Image">
+    </div>
+  </div>
+</div>

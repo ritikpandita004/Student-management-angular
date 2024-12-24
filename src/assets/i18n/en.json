@@ -1,0 +1,185 @@
+{
+  "LOGIN": {
+    "WELCOME": "Welcome to the Student Management System"
+  },
+  "COMMON": {
+    "HELLO": "Hello",
+    "FOLLOW": "Follow",
+    "FORGOT_PASSWORD": "Forgot Password",
+    "LOG_IN": "Login",
+    "REMEMBER_ME": "Remember Me",
+    "RESET_PASSWORD_PARA": "Lost your password? Please enter your email address. You will receive a link to create a new password via email.",
+    "SEND_PASSWORD_VERIFICATION_BUTTON": "Send password verification",
+    "ENTER_NEW_PASSWORD": "Enter the new password",
+    "PASSWORD_CONFIRMATION": "Password and confirm password do not match.",
+    "RESET_PASSWORD_BUTTON": "Reset your password",
+    "STATE_CHANGE": "State field is required",
+    "NAME_REQUIRED": "Name field is required",
+    "CITY_REQUIRED": "City field is required",
+    "ZIPCODE_REQUIRED": "Zipcode field is required",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "STATE": "State",
+    "CITY": "City",
+    "ZIP": "Zipcode",
+    "LANGUAGE": "Preferred Language",
+    "Edit your details": "Edit your details",
+    "PROFILE_DETAILS":"Profile Details",
+    "FIRST_NAME":"First Name",
+    "LAST_NAME":"Last Name",
+    "PHONE_NUMBER":"Phone Number",
+    "CANCEL":"Cancel",
+    "ADD":"Add",
+     "EDIT":"Edit",
+     "CONFIRM":"CONFIRM"
+  },
+  "PLACEHOLDER": {
+    "EMAIL": "Enter the email address",
+    "NAME": "Enter your name",
+    "STATE": "Enter your state",
+    "CITY": "Enter your city",
+    "ZIP": "zipcode",
+    "LANGUAGE": "Enter your preferred language",
+    "PASSWORD":"Enter the password",
+    "NOTES":"Notes",
+    "DISTRICT_CODE" :"District Code",
+    "DISTRICT_NAME":"District Name",
+    "SCHOOL_YEAR":"School Year",
+    "OFFICE_EMAIL":"Office Email",
+    "OFFICE_PHONE_NUMBER":"Office Phone Number",
+    "OFFICE_FAX_NUMBER":"Office Fax Number",
+     "MAILING_ADDRESS_INFORMATION":"Mailing Address information",
+        "SUPERINTENDENT_INFORMATION":"Superintendent information",
+        "FIRST_NAME":"First Name",
+    "LAST_NAME":"Last Name",
+    "PHONE_NUMBER":"Phone Number",
+
+    "CONFIRM_NEW_PASSWORD":"Confirm Password"
+  },
+  "ERRORS": {
+    "PASSWORD": {
+      "PASSWORD_REQUIRED": "Password field is required",
+      "PASSWORD_8_CHAR": "Password must be at least 8 characters long.",
+      "PASSWORD_UPPERCASE": "Password must contain at least one uppercase letter.",
+      "PASSWORD_LOWERCASE": "Password must contain at least one lowercase letter.",
+      "PASSWORD_NUMBER": "Password must contain at least one number.",
+      "PASSWORD_SPECIAL_CHAR": "Password must contain at least one special character."
+    },
+    "EMAIL": {
+      "EMAIL_REQUIRED": "Email field is required",
+      "EMAIL_INVALID": "Please enter a valid email"
+    },
+
+    "DISTRICT":{
+      "DISTRICT_CODE":"DISTRICT code is reqiured",
+      "DISTRICT_CODE_NUMBER": "It should only be numbers",
+      "DISTRICT_NAME_APHA":"The District name must be a alphabet",
+      "DISTRICT_NAME":"District Name is required",
+      "SCHOOL_YEAR":"School Year is required",
+      "SCHOOL_YEAR_NUMBER":"Enter valid School year",
+
+        "OFFICE_EMAIL":"Office Email is required",
+        "OFFICE_EMAIL_VALID":"Office email must be a valid email",
+        "OFFICE_PHONE_NUMBER":"Office Phone Number is required",
+        "OFFICE_PHONE_NUMBER_VALID":"Office phone number must be a valid number",
+        "OFFICE_FAX_NUMBER":"Office Fax Number is required",
+        "OFFICE_FAX_NUMBER_VALID":"Office fax number must be a valid number",
+        "OFFICE_FAX_NUMBER_MIN_LENGTH":"Office fax number must be of 10 digits",
+        "OFFICE_FAX_MAX_LENGTH":"Office fax number must be of 10 digits",
+
+        "ADDRESS":"Address is required",
+        "CITY":"City is required",
+        "CITY_VALID":"Enter the valid city",
+        "STATE":"State is required",
+        "STATE_VALID":"Enter the valid state",
+        "ZIP":"Zipcode is required",
+        "ZIPCODE_VALID": "Enter the valid zipcode",
+        "SUPERINTENDENT_INFORMATION":"Superintendent information is required",
+        "FIRST_NAME":"First Name is required",
+        "FIRST_NAME_VALID":"Enter valid first name",
+          "LAST_NAME":"Last Name is required",
+          "LAST_NAME_VALID":"Enter valid last name",
+          "PHONE_NUMBER":"Phone Number is required",
+          "MIN_LENGTH": "Phone number must be of 10 digits",
+          "MAX_LENGTH": "Phone number must be of 10 digits",
+          "EMAIL": "Email field is required",
+          "EMAIl_VALID":"Email must be a valid email address",
+          "INVALID_PHONE_NUMBER":"Enter a valid phone number"
+
+
+
+
+    },
+
+    "DISTRICT_CALENDAR":{
+
+      "CALENDAR_NAME":"Calendar name is required",
+      "CALENDAR_NAME_VALID": "Enter valid Calendar name."
+
+
+
+
+    }
+  },
+
+
+    "DISTRICT":{
+      "DISTRICT_INFORMATION":"District Information",
+      "ADD_BUTTON":"+ Add",
+       "DISTRICT": "District",
+       "CONFIRM_DISTRICT_DELETE":"Confirm District Delete",
+     "CONFIRM_DISTRICT_DELETE_STATEMENT": "Are you sure you want to delete this district?",
+       "PHYSICAL_STATE":"State",
+       "PHYSICAL_CITY":"City",
+       "SUPERINTENDENT_EMAIL":"Superintendent Email",
+       "SUPERINTENDENT_NAME":"Superintendent Name",
+       "SUPERINTENDENT_PHONE":"Superintendent Phone",
+       "STATUS":"Status",
+        "ACTION":"Action",
+        "DISTRICT_MIN_LENGTH":"The minimum length should be 6",
+        "DISTRICT_MAX_LENGTH":"The maximum length should be 6",
+
+        "DISTRICT_CODE" :"District Code",
+        "DISTRICT_NAME":"District Name",
+        "SCHOOL_YEAR":"School Year",
+        "OFFICE_EMAIL":"Office Email",
+        "OFFICE_PHONE_NUMBER":"Office Phone Number",
+        "OFFICE_FAX_NUMBER":"Office Fax Number",
+        "PHYSICAL_ADDRESS_INFORMATION":"Physical Address information",
+        "ADDRESS":"Address",
+        "CITY":"City",
+        "STATE":"State",
+        "ZIP":"Zipcode",
+        "SAME_AS_PHYSICAL_ADDRESS":"Same as Physical Address",
+        "MAILING_ADDRESS_INFORMATION":"Mailing Address information",
+        "SUPERINTENDENT_INFORMATION":"Superintendent information"
+
+
+    },
+
+    "DISTRICT_CALENDER":{
+      "ADD_DISTRICT_CALENDAR":"Add District Calendar",
+      "EDIT_DISTRICT_CALENDAR":"Edit District Calendar",
+      "DISTRICT_NAME":"District Name",
+      "DISTRICT_CALENDAR":"District Calendar",
+      "START_DATE":"Start Date",
+      "END_DATE":"End Date",
+      "DISTRICT_CALENDAR_INFORMATION":"District Calendar Information",
+      "DISTRICT_CALENDAR_PARA":"Click the 'Add' button to add a new calendar.",
+      "DISTRICT_CALENDAR_EDIT_PARA":"Edit District Calendar Information below. Can only change dates when status is Active or Open.",
+      "DISTRICT_CALENDAR_NAME": "District Calendar Name",
+      "START":"Start",
+      "END":"End",
+      "STATUS":"Status",
+      "ACTION":"Action",
+      "DISTRICT_CALENDER.CONFIRM_STATUS_CHANGE":"Are you sure you want to change the status of this district?",
+      "CONFIRMATION":"Confirm Status Change",
+
+      "CONFIRM_CALENDAR_DISTRICT_DELETE":"Confirm District Calendar Delete",
+      "CONFIRM_CALENDAR_DISTRICT_DELETE_STATEMENT": "Are you sure you want to delete this district Calendar?"
+
+
+    }
+
+
+}

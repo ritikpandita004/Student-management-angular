@@ -1,0 +1,105 @@
+
+<div class="container card shadow mt-5 p-4">
+  <div class="row mt-2">
+    <div class="col-12 col-md-10">
+      <h3 class="text-center text-md-start" style="font-family: Arial, sans-serif;">
+        {{'DISTRICT.DISTRICT_INFORMATION' | translate}}
+      </h3>
+    </div>
+    <div class="col-12 col-sm-6 col-md-2 d-flex justify-content-center justify-content-md-end align-items-center mb-2">
+      <button type="button" (click)="addDistrict()" class="btn btn-primary btn-sm px-4 py-2">
+        Add
+      </button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12 mt-2">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="table-light">
+            <tr class="text-center">
+              <th scope="col">{{'DISTRICT.DISTRICT' | translate}}</th>
+              <th scope="col">{{'DISTRICT.PHYSICAL_STATE' | translate}}</th>
+              <th scope="col">{{'DISTRICT.PHYSICAL_CITY' | translate}}</th>
+              <th scope="col">{{'DISTRICT.SUPERINTENDENT_EMAIL' | translate}}</th>
+              <th scope="col">{{'DISTRICT.SUPERINTENDENT_NAME' | translate}}</th>
+              <th scope="col">{{'DISTRICT.SUPERINTENDENT_PHONE' | translate}}</th>
+              <th scope="col">{{'DISTRICT.STATUS' | translate}}</th>
+              <th scope="col">{{'DISTRICT.ACTION' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let district of districtData" class="text-center">
+              <td>{{district.district_name}}</td>
+              <td>{{district.physical_state}}</td>
+              <td>{{district.physical_city}}</td>
+              <td>{{district.superintendent_email}}</td>
+              <td>{{district.superintendent_first_name}}</td>
+              <td>{{district.superintendent_phone_number}}</td>
+              <td class="edit-delete-btn">
+                <i class="bi" [ngClass]="{
+                      'bi-check-circle-fill text-success': district.status === 'active',
+                      'bi-x-circle-fill text-danger': district.status === 'inactive'
+                  }" (click)="toggleDistrictStatus(district)" style="cursor: pointer; font-size: 1.2rem;">
+                </i>
+              </td>
+              <td class="edit-delete-btn">
+                <a (click)="editDistrict(district.id)" class="text-primary"><i
+                    class="bi bi-pencil-square fs-5 me-2"></i></a>
+                <a (click)="deleteDistrict(district.id)" class="text-danger"><i class="bi bi-trash fs-5"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modal for confirming status change -->
+      <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmationModalLabel">{{ 'DISTRICT_CALENDER.CONFIRMATION' | translate }}
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {{ 'DISTRICT_CALENDER.DISTRICT_CALENDER.CONFIRM_STATUS_CHANGE' | translate }}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'COMMON.CANCEL' | translate
+                }}</button>
+              <button type="button" class="btn confirm-btn" (click)="confirmStatusChange()">{{ 'COMMON.CONFIRM' |
+                translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for confirming delete -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmationModalLabel">{{ 'DISTRICT.CONFIRM_DISTRICT_DELETE' | translate }}
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {{ 'DISTRICT.CONFIRM_DISTRICT_DELETE_STATEMENT' | translate }}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'COMMON.CANCEL' | translate
+                }}</button>
+              <button type="button" class="btn confirm-btn" (click)="confirmDelete()">{{ 'COMMON.CONFIRM' | translate
+                }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

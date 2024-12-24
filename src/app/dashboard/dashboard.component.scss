@@ -1,0 +1,56 @@
+/* General Layout Styling */
+#main-content {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+/* Sidebar Styling */
+app-sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1040;
+  transition: all 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+  app-sidebar {
+    width: 80px;
+  }
+
+  app-sidebar .nav-link span {
+    display: none;
+  }
+
+  app-sidebar .nav-link i {
+    font-size: 1.5rem;
+  }
+
+
+  #main-content {
+    background-color: #ffffff;
+    margin-left: 0;
+
+
+
+
+}
+
+
+@media (max-width: 576px) {
+  app-sidebar {
+    width: 60px;
+  }
+
+  app-sidebar .nav-link i {
+    font-size: 1.2rem;
+  }
+
+
+  .d-flex.flex-column.flex-md-row {
+    flex-direction: column;
+  }
+}
+}

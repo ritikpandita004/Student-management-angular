@@ -1,0 +1,275 @@
+<div class="container card p-4 shadow  mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="m-2">Add District</h3>
+    </div>
+    <hr>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-10 mt-2">
+      <form [formGroup]="districtForm" (submit)="saveDistrictInfo()">
+        <div class="row mt-3">
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">{{"DISTRICT.DISTRICT_CODE" | translate }} <span class="text-danger">*</span></label>
+            <input
+                type="text"
+                class="form-control"
+                id="District-Code"
+                formControlName="districtCode"
+                placeholder="{{'PLACEHOLDER.DISTRICT_CODE' | translate }}">
+
+            <div *ngIf="districtForm.get('districtCode')?.invalid && districtForm.get('districtCode')?.touched" class="text-danger">
+                <div *ngIf="districtForm.get('districtCode')?.errors?.['required']">
+                    {{'ERRORS.DISTRICT.DISTRICT_CODE' | translate}}
+                </div>
+                <div *ngIf="districtForm.get('districtCode')?.errors?.['pattern']">
+                    {{'ERRORS.DISTRICT.DISTRICT_CODE_NUMBER' | translate}}
+                </div>
+            </div>
+        </div>
+
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">{{"DISTRICT.DISTRICT_NAME" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="District-Name" formControlName="districtName" placeholder="{{'PLACEHOLDER.DISTRICT_NAME' | translate }}">
+            <div *ngIf="districtForm.get('districtName')?.invalid && districtForm.get('districtName')?.touched" class="text-danger">
+              <div *ngIf="districtForm.get('districtName')?.errors?.['required']">
+                {{'ERRORS.DISTRICT.DISTRICT_NAME' | translate}}
+            </div>
+            <div *ngIf="districtForm.get('districtName')?.errors?.['pattern']">
+                {{'ERRORS.DISTRICT.DISTRICT_NAME_APHA' | translate}}
+            </div>
+            </div>
+          </div>
+
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">{{"DISTRICT.SCHOOL_YEAR" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="School-Year" formControlName="schoolYear" placeholder="{{'PLACEHOLDER.SCHOOL_YEAR' | translate }}">
+            <div *ngIf="districtForm.get('schoolYear')?.invalid && districtForm.get('schoolYear')?.touched" class="text-danger">
+              <div *ngIf="districtForm.get('schoolYear')?.errors?.['required']">
+                  {{'ERRORS.DISTRICT.DISTRICT_CODE' | translate}}
+              </div>
+              <div *ngIf="districtForm.get('schoolYear')?.errors?.['pattern']">
+                  {{'ERRORS.DISTRICT.DISTRICT_CODE_NUMBER' | translate}}
+              </div>
+          </div>
+          </div>
+
+        </div>
+
+
+
+        <div class="row mt-3">
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">{{"DISTRICT.OFFICE_EMAIL" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="Office Email" formControlName="officeEmail" placeholder="{{'PLACEHOLDER.OFFICE_EMAIL' | translate }}">
+
+            <div *ngIf="districtForm.get('officeEmail')?.invalid && districtForm.get('officeEmail')?.touched" class="text-danger">
+              <span *ngIf="districtForm.get('officeEmail')?.errors?.['required']">{{"ERRORS.DISTRICT.OFFICE_EMAIL"|translate}}</span>
+              <span *ngIf="districtForm.get('officeEmail')?.errors?.['pattern']">{{"ERRORS.DISTRICT.OFFICE_EMAIL_VALID"|translate}}</span>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">{{"DISTRICT.OFFICE_PHONE_NUMBER" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="Office-Phone-Number" formControlName="officePhoneNumber" placeholder="{{'PLACEHOLDER.OFFICE_PHONE_NUMBER' | translate }}">
+            <div *ngIf="districtForm.get('officePhoneNumber')?.invalid && districtForm.get('officePhoneNumber')?.touched" class="text-danger">
+              <div *ngIf="districtForm.get('officePhoneNumber')?.errors?.['required']">{{"ERRORS.DISTRICT.PHONE_NUMBER"|translate}}</div>
+              <div *ngIf="districtForm.get('officePhoneNumber')?.errors?.['minlength']">{{"ERRORS.DISTRICT.MIN_LENGTH"|translate}}</div>
+              <div *ngIf="districtForm.get('officePhoneNumber')?.errors?.['maxlength']">{{"ERRORS.DISTRICT.MAX_LENGTH"|translate}}</div>
+              <div *ngIf="districtForm.get('officePhoneNumber')?.errors?.['pattern']">{{"ERRORS.DISTRICT.INVALID_PHONE_NUMBER"|translate}}</div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">{{"DISTRICT.OFFICE_FAX_NUMBER" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="Office-Fax-Number" formControlName="officeFaxNumber" placeholder="{{'PLACEHOLDER.OFFICE_FAX_NUMBER' | translate }}">
+            <div *ngIf="districtForm.get('officeFaxNumber')?.invalid && districtForm.get('officeFaxNumber')?.touched" class="text-danger"></div>
+
+              <div *ngIf="districtForm.get('officeFaxNumber')?.invalid && districtForm.get('officeFaxNumber')?.touched" class="text-danger">
+                <div *ngIf="districtForm.get('officeFaxNumber')?.errors?.['required']"> {{"ERRORS.DISTRICT.OFFICE_FAX_NUMBER"|translate}}</div>
+                <div *ngIf="districtForm.get('officeFaxNumber')?.errors?.['minlength']">{{"ERRORS.DISTRICT.OFFICE_FAX_NUMBER_MIN_LENGTH"|translate}}</div>
+                <div *ngIf="districtForm.get('officeFaxNumber')?.errors?.['maxlength']">{{"ERRORS.DISTRICT.OFFICE_FAX_MAX_LENGTH"|translate}}</div>
+                <div *ngIf="districtForm.get('officeFaxNumber')?.errors?.['pattern']">{{"ERRORS.DISTRICT.OFFICE_FAX_NUMBER_VALID"|translate}}</div>
+
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="col-md-5  mt-3 mb-3">
+          <h4>{{"DISTRICT.PHYSICAL_ADDRESS_INFORMATION" | translate }}</h4>
+         </div>
+         <div class="form-group">
+          <label for="inputAddress">{{"DISTRICT.ADDRESS" | translate }}<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="inputAddress" formControlName="physical_address" placeholder="1234 Main St">
+          <div *ngIf="districtForm.get('physical_address')?.invalid && districtForm.get('physical_address')?.touched" class="text-danger">
+            {{"ERRORS.DISTRICT.ADDRESS"|translate}}
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">{{"DISTRICT.CITY" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputCity" formControlName="physical_city" placeholder="{{'PLACEHOLDER.CITY' | translate }}">
+            <div *ngIf="districtForm.get('physical_city')?.invalid && districtForm.get('physical_city')?.touched" class="text-danger">
+              <span *ngIf="districtForm.get('physical_city')?.errors?.['required']"> {{"ERRORS.DISTRICT.CITY"|translate}}</span>
+              <span *ngIf="districtForm.get('physical_city')?.errors?.['pattern']">{{"ERRORS.DISTRICT.CITY_VALID"|translate}}</span>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputState">{{"DISTRICT.STATE" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputState" formControlName="physical_state" placeholder="{{'PLACEHOLDER.STATE' | translate }}">
+            <div *ngIf="districtForm.get('physical_state')?.invalid && districtForm.get('physical_state')?.touched" class="text-danger">
+
+              <span *ngIf="districtForm.get('physical_state')?.errors?.['required']">   {{"ERRORS.DISTRICT.STATE"|translate}}</span>
+              <span *ngIf="districtForm.get('physical_state')?.errors?.['pattern']">{{"ERRORS.DISTRICT.STATE_VALID"|translate}}</span>
+            </div>
+
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">{{"DISTRICT.ZIP" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="physical_zip" id="inputZip"placeholder="{{'PLACEHOLDER.ZIP' | translate }}">
+            <div *ngIf="districtForm.get('physical_zip')?.invalid && districtForm.get('physical_zip')?.touched" class="text-danger">
+              <div *ngIf="districtForm.get('physical_zip')?.errors?.['minlength']">{{"DISTRICT.DISTRICT_MIN_LENGTH"|translate}}</div>
+              <div *ngIf="districtForm.get('physical_zip')?.errors?.['maxlength']">{{"DISTRICT.DISTRICT_MAX_LENGTH"|translate}}</div>
+
+
+              <span *ngIf="districtForm.get('physical_zip')?.errors?.['required']">   {{"ERRORS.DISTRICT.ZIP"|translate}}</span>
+              <span *ngIf="districtForm.get('physical_zip')?.errors?.['pattern']">{{"ERRORS.DISTRICT.ZIPCODE_VALID"|translate}}</span>
+             </div>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck" (change)="mailingAddressToPhysicalAddress($event)">
+            <label class="form-check-label" for="gridCheck">
+            {{"DISTRICT.SAME_AS_PHYSICAL_ADDRESS" | translate }}
+            </label>
+          </div>
+        </div>
+        <hr>
+        <div class="col-md-5  mt-3 mb-3">
+          <h4>  {{"DISTRICT.MAILING_ADDRESS_INFORMATION" | translate }}</h4>
+         </div>
+
+         <div class="form-group">
+          <label for="inputAddress">{{"DISTRICT.ADDRESS" | translate }}<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="inputAddress" formControlName="mailing_address" placeholder="1234 Main St">
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">{{"DISTRICT.CITY" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" formControlName="mailing_city" id="inputCity" placeholder="{{'PLACEHOLDER.CITY' | translate }}">
+            <div *ngIf="districtForm.get('mailing_city')?.invalid && districtForm.get('mailing_city')?.touched" class="text-danger">
+            <span *ngIf="districtForm.get('mailing_city')?.errors?.['required']"> {{"ERRORS.DISTRICT.CITY"|translate}} </span>
+            <span *ngIf="districtForm.get('mailing_city')?.errors?.['pattern']">{{"ERRORS.DISTRICT.CITY_VALID"|translate}}</span>
+          </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">{{"DISTRICT.STATE" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputState" formControlName="mailing_state" placeholder="{{'PLACEHOLDER.STATE' | translate }}">
+            <div *ngIf="districtForm.get('mailing_state')?.invalid && districtForm.get('mailing_state')?.touched" class="text-danger">
+            <span *ngIf="districtForm.get('mailing_state')?.errors?.['required']">   {{"ERRORS.DISTRICT.STATE"|translate}}</span>
+              <span *ngIf="districtForm.get('mailing_state')?.errors?.['pattern']">{{"ERRORS.DISTRICT.STATE_VALID"|translate}}</span>
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">{{"DISTRICT.ZIP" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputZip" formControlName="mailing_zip" placeholder="{{'PLACEHOLDER.ZIP' | translate }}">
+            <div *ngIf="districtForm.get('mailing_zip')?.invalid && districtForm.get('mailing_zip')?.touched" class="text-danger">
+            <span *ngIf="districtForm.get('mailing_zip')?.errors?.['required']">   {{"ERRORS.DISTRICT.ZIP"|translate}}</span>
+            <span *ngIf="districtForm.get('mailing_zip')?.errors?.['pattern']">{{"ERRORS.DISTRICT.ZIPCODE_VALID"|translate}}</span>
+          </div>
+          </div>
+        </div>
+        <hr>
+        <div class="col-md-5  mt-3 mb-3">
+          <h4>{{"DISTRICT.SUPERINTENDENT_INFORMATION" | translate }}</h4>
+         </div>
+
+         <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="inputAddress">{{"COMMON.FIRST_NAME" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="superintendent_first_name" placeholder="{{'PLACEHOLDER.FIRST_NAME' | translate }}">
+
+             <div *ngIf="districtForm.get('superintendent_first_name')?.invalid && districtForm.get('superintendent_first_name')?.touched" class="text-danger">
+              <span *ngIf="districtForm.get('superintendent_first_name')?.errors?.['required']">    {{"ERRORS.DISTRICT.FIRST_NAME"|translate}}</span>
+              <span *ngIf="districtForm.get('superintendent_first_name')?.errors?.['pattern']">{{"ERRORS.DISTRICT.FIRST_NAME_VALID"|translate}}</span>
+            </div>
+
+
+          </div>
+
+
+          <div class="col-md-6">
+            <label for="inputAddress">{{"COMMON.LAST_NAME" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="superintendent_last_name" placeholder="{{'PLACEHOLDER.LAST_NAME' | translate }}">
+
+
+             <div *ngIf="districtForm.get('superintendent_last_name')?.invalid && districtForm.get('superintendent_last_name')?.touched" class="text-danger">
+              <span *ngIf="districtForm.get('superintendent_last_name')?.errors?.['required']"> {{"ERRORS.DISTRICT.LAST_NAME"|translate}}</span>
+              <span *ngIf="districtForm.get('superintendent_last_name')?.errors?.['pattern']">{{"ERRORS.DISTRICT.LAST_NAME_VALID"|translate}}</span>
+            </div>
+
+          </div>
+         </div>
+
+         <div class="row">
+          <div class="col-md-6 mb-4">
+            <label for="inputAddress">{{"COMMON.PHONE_NUMBER" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="superintendent_phoneNumber" placeholder="{{'PLACEHOLDER.PHONE_NUMBER' | translate }}">
+
+            <div *ngIf="districtForm.get('superintendent_phoneNumber')?.invalid && districtForm.get('superintendent_phoneNumber')?.touched" class="text-danger">
+              <div *ngIf="districtForm.get('superintendent_phoneNumber')?.errors?.['required']">{{"ERRORS.DISTRICT.PHONE_NUMBER"|translate}}</div>
+              <div *ngIf="districtForm.get('superintendent_phoneNumber')?.errors?.['minlength']">{{"ERRORS.DISTRICT.MIN_LENGTH"|translate}}</div>
+              <div *ngIf="districtForm.get('superintendent_phoneNumber')?.errors?.['maxlength']">{{"ERRORS.DISTRICT.MAX_LENGTH"|translate}}</div>
+              <div *ngIf="districtForm.get('superintendent_phoneNumber')?.errors?.['pattern']">{{"ERRORS.DISTRICT.INVALID_PHONE_NUMBER"|translate}}</div>
+            </div>
+
+
+
+
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputAddress">{{"COMMON.EMAIL" | translate }}<span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="inputAddress" formControlName="superintendent_email" placeholder="{{'PLACEHOLDER.EMAIL' | translate }}">
+            <div *ngIf="districtForm.get('superintendent_email')?.invalid && districtForm.get('superintendent_email')?.touched" class="text-danger">
+              <span *ngIf="districtForm.get('superintendent_email')?.errors?.['required']"> {{"ERRORS.DISTRICT.EMAIL"|translate}}</span>
+              <span *ngIf="districtForm.get('superintendent_email')?.errors?.['pattern']">{{"ERRORS.DISTRICT.EMAIl_VALID"|translate}}</span>
+
+              </div>
+
+
+
+
+          </div>
+         </div>
+
+         <div class="form-group">
+          <label for="exampleFormControlTextarea1"></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="notes" rows="3" placeholder="{{'PLACEHOLDER.NOTES' | translate }}"></textarea>
+        </div>
+
+            <div class="row mt-5 mb-3">
+              <div class="col-md-6 d-grid ">
+                <button (click)="cancelbtn()" type="button" class="btn btn-secondary">{{"COMMON.CANCEL" | translate }}</button>
+              </div>
+              <div class="col-md-6 d-grid">
+                <button type="submit" class="btn btn-primary" [disabled]="districtForm.invalid">{{"COMMON.ADD" | translate }}</button>
+              </div>
+            </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+

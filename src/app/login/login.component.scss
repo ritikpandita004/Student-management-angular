@@ -1,0 +1,302 @@
+/* Overall styles */
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: white;
+  color: #333;
+}
+
+/* Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Left and Right panels */
+.left,
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+.right {
+  background: linear-gradient(135deg, #6C63FF, #0d6efd, #8E24AA);
+  padding: 0;
+}
+
+.right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 8px 8px 0;
+}
+
+.logo {
+
+  max-width: 100px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #333;
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 45px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.password-container i {
+  position: absolute;
+  right: 10px;
+  /* Position the icon to the right */
+  top: 50%;
+  /* Vertically center the icon */
+  transform: translateY(-70%);
+  font-size: 18px;
+  /* Adjust the icon size */
+  color: #333;
+  cursor: pointer;
+}
+
+
+
+h1 span {
+  color: #0d6efd;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+button{
+  margin: 2px;
+  cursor:pointer;
+  border: white;
+  border-radius: 3px;
+}
+
+
+.alert {
+  margin-top: -10px;
+  padding: 0px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: red
+}
+
+.alert-danger {
+  color: red
+    /* Red error color */
+}
+
+.alert-danger div {
+  margin-top: 5px;
+  /* Space between error messages */
+}
+
+.is-invalid {
+  border-color: red !important;
+  /* Highlight invalid inputs in red */
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
+
+/* Buttons and Options */
+.options {
+  display: flex;
+  justify-content: flex-end;
+  align-items: right;
+  margin-bottom: 20px;
+
+}
+
+.options label {
+  font-size: 14px;
+}
+
+.options .forgot-password {
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+
+}
+
+.forgot-password {
+  cursor: pointer;
+}
+
+
+
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-btn {
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.signup-btn {
+  background-color: transparent;
+  color: #0d6efd;
+  padding: 15px;
+  border: 1px solid #0d6efd;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1;
+}
+
+
+
+.disabled {
+  opacity: 0.6;
+  /* Makes the button look disabled */
+  cursor: not-allowed;
+}
+
+/* Social Media */
+.social {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.social p {
+  margin-bottom: 10px;
+}
+
+.social a {
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-box {
+    flex-direction: column;
+  }
+
+  .right {
+    order: -1;
+    height: auto;
+  }
+
+  .right img {
+    height: 100%;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .left {
+    padding: 20px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .login-btn,
+  .signup-btn {
+    margin: 5px 0;
+  }
+
+  .social {
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  input {
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .login-btn,
+  .signup-btn {
+    padding: 12px;
+  }
+
+  .right {
+    height: auto;
+  }
+
+  .right img {
+    height: 100%;
+  }
+
+  .social a {
+    font-size: 16px;
+  }
+}

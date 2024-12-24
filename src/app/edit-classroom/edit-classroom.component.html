@@ -1,0 +1,66 @@
+<div class="container card p-4 shadow mt-5 mb-5">
+  <div class="row">
+    <div class="m-3">
+      <h3>Edit Classroom</h3>
+    </div>
+    <hr>
+<form [formGroup]="editClassroom"  (submit)="editClassroomdDetails()">
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="Grade1" class="form-label">Grade</label>
+      <input type="text" class="form-control" id="Grade1" formControlName="grade">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="Grade2" class="form-label">Classroom Number</label>
+      <input type="text" class="form-control" id="Grade2" formControlName="classroomNumber">
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="Grade2" class="form-label">Team</label>
+      <input type="text" class="form-control" id="Grade2" formControlName="team">
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="Grade2" class="form-label">Capacity</label>
+      <input type="text" class="form-control" id="Grade2" formControlName="capacity">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="Grade2" class="form-label">Default Attendance Status</label>
+      <select class="form-select" aria-label="Default select example" formControlName="defaultAttenanceStatus">
+        <option selected>Select Status</option>
+        <option value="1">Present</option>
+        <option value="2">Absent</option>
+      </select>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="Grade2" class="form-label">Collect Attendance</label>
+      <select class="form-select" aria-label="Default select example" formControlName="collectAttendence">
+        <option selected>Select status</option>
+        <option value="1">Yes</option>
+        <option value="2">No</option>
+
+      </select>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="Grade2" class="form-label">Homeroom Class</label>
+      <select class="form-select" aria-label="Default select example" formControlName="homeroomClass">
+
+        <option selected>Select status</option>
+        <option value="1">Yes</option>
+        <option value="2">No</option>
+      </select>
+    </div>
+
+    <div class="col-md-6 d-grid">
+      <button type="button" class="btn btn-secondary">cancel</button>
+    </div>
+    <div class="col-md-6 d-grid">
+      <button type="submit" class="btn btn-primary">Edit</button>
+    </div>
+  </div>
+
+</form>
+
+  </div>
+</div>

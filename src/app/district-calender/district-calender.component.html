@@ -1,0 +1,129 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+
+      <div class="card p-4 shadow">
+        <div class="row">
+          <div class="col-md-10">
+            <h3>{{'DISTRICT_CALENDER.DISTRICT_CALENDAR_INFORMATION'|translate}}</h3>
+          </div>
+
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-end align-items-end mb-2 ">
+            <button type="button" (click)="addDistrictCalender()"
+            style="background-color: #0d6efd;  padding: 5px 20px; color: white;"
+            class="btn btn-pink btn-sm">
+               Add
+            </button>
+        </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-md-12">
+            <p>{{'DISTRICT_CALENDER.DISTRICT_CALENDAR_PARA'|translate}}</p>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-md-12">
+            <p>{{"DISTRICT_CALENDER.DISTRICT_CALENDAR_EDIT_PARA"|translate}}</p>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-md-12">
+            <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="table-light">
+                <tr class="text-center">
+                  <th scope="col">{{"DISTRICT_CALENDER.DISTRICT_NAME"|translate}}</th>
+                  <th scope="col">{{"DISTRICT_CALENDER.DISTRICT_CALENDAR_NAME"|translate}}</th>
+                  <th scope="col">{{"DISTRICT_CALENDER.START"|translate}} [yyyy/dd/mm]</th>
+                  <th scope="col">{{"DISTRICT_CALENDER.END"|translate}} [yyyy/dd/mm]</th>
+                  <th scope="col">{{"DISTRICT_CALENDER.STATUS"|translate}}</th>
+                  <th scope="col">{{"DISTRICT_CALENDER.ACTION"|translate}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let calendar of districtCalenderData" class="text-center">
+
+                  <td>{{calendar.districtName}}</td>
+                  <td>{{calendar.calendarName}}</td>
+                  <td>{{calendar.startDate}}</td>
+                  <td>{{calendar.endDate}}</td>
+                  <td>
+                    <i class="bi" [ngClass]="{
+                      'bi-check-circle-fill text-success': calendar.status === 'active',
+                      'bi-x-circle-fill text-danger': calendar.status === 'inactive'
+                  }" (click)="toggleDistrictStatus(calendar)" style="cursor: pointer; font-size: 1.2rem;">
+                    </i>
+                  </td>
+
+                  <td class="edit-delete-btn">
+                    <a (click)="editDistrictCalendar(calendar.id)" class="text-primary"> <i class="bi bi-pencil-square fs-5 me-2"></i></a>
+                    <a  (click)="deleteDistrictCalendar(calendar.id)" class="text-danger">
+                      <i class="bi bi-trash fs-5 me-2"></i>
+                    </a>
+                    <a  (click)="viewHolidayCalendar(calendar.id)" class="text-primary">
+                      <i class="bi bi-eye-fill fs-5"></i>
+                    </a>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+</div>
+
+            <!-- Confirmation Modal -->
+            <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">{{ 'DISTRICT_CALENDER.CONFIRMATION' | translate }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    {{ 'DISTRICT_CALENDER.DISTRICT_CALENDER.CONFIRM_STATUS_CHANGE' | translate }}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'COMMON.CANCEL' | translate
+                      }}</button>
+                    <button  type="button" class="btn confirm-btn" (click)="confirmToggleStatus()">{{ 'COMMON.CONFIRM' |
+                      translate }}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Confirmation district caelendar delete Modal -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModal">{{ 'DISTRICT_CALENDER.CONFIRM_CALENDAR_DISTRICT_DELETE' | translate }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    {{ 'DISTRICT_CALENDER.CONFIRM_CALENDAR_DISTRICT_DELETE_STATEMENT' | translate }}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'COMMON.CANCEL' | translate
+                      }}</button>
+                    <button  type="button" class="btn confirm-btn" (click)="confirmDelete()">{{ 'COMMON.CONFIRM' |
+                      translate }}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

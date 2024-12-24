@@ -1,0 +1,222 @@
+<div class="container card p-4 shadow mt-2 mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="m-2">Add Teacher</h3>
+    </div>
+    <hr>
+    
+    <p>Click the "+ Add" to add a new Teacher to your school or click "Upload" to upload a full list of Teachers.
+      Download the template <a href="">HERE</a> for uploading.</p>
+    <div class="col-md-2 d-grid">
+      <button type="submit" class="btn btn-primary uploadbtn">Upload</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="mb-3">
+        <img src="assets/images (4).jpeg" class="rounded float-left m-2" alt="...">
+        <label for="formFile" class="form-label"> </label>
+        <input class="form-control" type="file" id="formFile" formControlName="schoolImage">
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <form [formGroup]="addTeachers" (submit)="saveTeachers()"  style="margin-top: -21px;">
+      <div class="row mt-2">
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">First Name</label>
+          <input type="text" class="form-control" formControlName="first_name" placeholder="enter first name">
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="exampleInputPassword1">Last Name</label>
+          <input type="text" class="form-control" formControlName="last_name" placeholder="enter last name">
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+            placeholder="Enter email">
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="exampleInputPassword1">Phone Number</label>
+          <input type="text" class="form-control" formControlName="phone" placeholder="Phone">
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <h5>School Information</h5>
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">School District</label>
+          <select class="form-control" formControlName="school_district" (change)="school($event)"
+            placeholder="Select a district">
+            <option value="" disabled>Select a district</option>
+            <option *ngFor="let schoolDistricts of District" [value]="schoolDistricts.id">
+              {{ schoolDistricts.district_name }}
+            </option>
+          </select>
+
+
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="exampleInputPassword1">School Name</label>
+          <select class="form-control" formControlName="school_name" placeholder="Select a school">
+            <option value="" disabled>Select a school</option>
+            <option *ngFor="let school of schoolinfo" [value]="school.id">
+              {{ school.school_name }}
+            </option>
+          </select>
+
+        </div>
+      </div>
+
+
+
+      <div class="row mt-3">
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Grade</label>
+          <input type="text" class="form-control" formControlName="grade" aria-describedby="emailHelp"
+            placeholder="enter grade">
+
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleInputPassword1">Room Number</label>
+          <input type="text" class="form-control" formControlName="room_number" placeholder="enter room number">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputPassword1">Default Room Number</label>
+          <input type="text" class="form-control" formControlName="default_room_number" placeholder="Password">
+        </div>
+      </div>
+
+
+
+
+      <div class="row mt-3">
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Work Phone</label>
+          <input type="text" class="form-control" formControlName="work_phone" aria-describedby="emailHelp"
+            placeholder="enter work phone">
+
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleInputPassword1">Position</label>
+          <input type="text" class="form-control" formControlName="position" placeholder="enter position">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputPassword1">Staff Id</label>
+          <input type="text" class="form-control" formControlName="staff_id" placeholder="enter Staff Id">
+        </div>
+      </div>
+
+
+      <div class="row mt-3">
+        <h5>Mailing Address Information</h5>
+        <div class="form-group col-md-12">
+          <label for="exampleInputEmail1">Address</label>
+          <input type="text" class="form-control" formControlName="address" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+      </div>
+
+      <div class="row mt-3">
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">City
+          </label>
+          <input type="text" class="form-control" formControlName="city" aria-describedby="emailHelp"
+            placeholder="Enter city">
+
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">State
+          </label>
+          <input type="text" class="form-control" formControlName="state" aria-describedby="emailHelp"
+            placeholder="Enter state">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Zip
+          </label>
+          <input type="text" class="form-control" formControlName="zip" aria-describedby="emailHelp"
+            placeholder="Enter zip">
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-5">
+          <p>Allow teacher to add new students to their classroom(s) ?</p>
+        </div>
+        <div class="col-md-5">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="new_student_in_classroom" value="yes"
+              id="new_student_in_classroom_yes">
+            <label class="form-check-label" for="new_student_in_classroom_yes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="new_student_in_classroom" value="no"
+              id="new_student_in_classroom_no">
+            <label class="form-check-label" for="new_student_in_classroom_no">No</label>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-5">
+          <p>Allow teacher to disable their student's account ?</p>
+        </div>
+        <div class="col-md-5">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="disable_student_account" value="yes"
+              id="disable_student_account_yes">
+            <label class="form-check-label" for="disable_student_account_yes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="disable_student_account" value="no"
+              id="disable_student_account_no">
+            <label class="form-check-label" for="disable_student_account_no">No</label>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+
+        <div class="col-md-5">
+          <p>Allow teacher to update their students RFID # ?</p>
+        </div>
+        <div class="col-md-5">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="update_student_rfid" value="yes"
+              id="update_student_rfid_yes">
+            <label class="form-check-label" for="update_student_rfid_yes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="update_student_rfid" value="no"
+              id="update_student_rfid_no">
+            <label class="form-check-label" for="update_student_rfid_no">No</label>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5 mb-3">
+        <div class="col-md-6 d-grid">
+          <button type="button" class="btn btn-secondary" (click)="cancelbtn()">Cancel</button>
+        </div>
+        <div class="col-md-6 d-grid">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</div>

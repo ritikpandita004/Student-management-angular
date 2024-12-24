@@ -1,0 +1,48 @@
+<div class="container card p-4 shadow mt-5 " >
+  <div class="row">
+    <div class="col-md-12 ">
+      <h3>Add School Calendar</h3>
+    </div>
+  </div>
+<hr>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="addSchoolCalendar" (submit)="submitSchoolCalendar()">
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">School Calendar Name</label>
+               <input type="text" class="form-control" formControlName="schoolCalendarName">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="startDate">Start Date</label>
+              <input type="date" class="form-control" id="startDate" formControlName="startDate">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="endDate">{{'DISTRICT_CALENDER.END_DATE'| translate}}</label>
+              <input type="date" class="form-control" id="endDate" formControlName="endDate">
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6 d-grid">
+            <button type="button"  class="btn btn-secondary mt-1" (click)="cancelbtn()">Cancel</button>
+          </div>
+          <div class="col-md-6 d-grid">
+            <button type="submit" class="btn btn-primary mt-1">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

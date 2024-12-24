@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-3 ">
+      <h3>{{'DISTRICT_CALENDER.ADD_DISTRICT_CALENDAR'| translate}}</h3>
+    </div>
+  </div>
+<hr>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="addDistrictCalendar" (ngSubmit)="submitDistrictCalendarDetails()">
+        <div class="row mb-2">
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">{{'DISTRICT_CALENDER.DISTRICT_NAME'| translate}}</label>
+              <select class="form-control" id="exampleFormControlSelect1" formControlName="districtName">
+                <option *ngFor="let district of districtData" [value]="district.district_name">
+                  {{ district.district_name }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">{{'DISTRICT_CALENDER.DISTRICT_CALENDAR'| translate}}</label>
+              <input type="text" class="form-control" placeholder="Calendar Name" formControlName="calendarName">
+              <div *ngIf="addDistrictCalendar.get('calendarName')?.invalid && addDistrictCalendar.get('calendarName')?.touched" class="text-danger">
+                <span *ngIf="addDistrictCalendar.get('calendarName')?.errors?.['required']"> {{"ERRORS.DISTRICT_CALENDAR.CALENDAR_NAME"|translate}}</span>
+                <span *ngIf="addDistrictCalendar.get('calendarName')?.errors?.['pattern']">{{"ERRORS.DISTRICT_CALENDAR.CALENDAR_NAME_VALID"|translate}}</span>
+
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="startDate">{{'DISTRICT_CALENDER.START_DATE'| translate}}</label>
+              <input type="date" class="form-control" id="startDate" formControlName="startDate">
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="endDate">{{'DISTRICT_CALENDER.END_DATE'| translate}}</label>
+              <input type="date" class="form-control" id="endDate" formControlName="endDate">
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12 col-md-5 d-grid ms-1 mt-2">
+            <button type="button" (click)="cancelbtn()" class="btn btn-secondary w-100">{{ "COMMON.CANCEL" | translate }}</button>
+          </div>
+          <div class="col-12 col-md-5 d-grid ms-1 mt-2">
+            <button type="submit" class="btn btn-primary w-100">{{ "COMMON.ADD" | translate }}</button>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>

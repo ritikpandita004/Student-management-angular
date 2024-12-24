@@ -1,0 +1,108 @@
+<div class="container mt-3 card p-4 shadow">
+  <h3 class="m-3" style="font-family: Arial, sans-serif;">School Classroom Information</h3>
+  <hr>
+  <p class="m-3">
+    Click the "+ Add" to add a new classroom to your school or click "Upload" to upload a full list of classrooms.
+    Download the template HERE for uploading.
+  </p>
+  <div class="row">
+    <div class="col-12 col-md-3 col-lg-2 ms-md-3 mb-2 mb-md-0">
+      <button id="addbtn" class="btn btn-primary w-100 custom-btn" (click)="addClassroom()">+ Add</button>
+    </div>
+  </div>
+
+  <div class="m-3">
+    <p>Edit classroom information below. Can only change classroom with Active status.</p>
+    <p>WARNING: Changing to close status will no longer hold that room to capture information.</p>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mt-2">
+      <div class="table-responsive">
+
+
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">Grade</th>
+            <th scope="col">Classroom Number</th>
+            <th scope="col">Team</th>
+            <th scope="col">Team Capacity</th>
+            <th scope="col">Collect Attendance</th>
+            <th scope="col">Default Attendance Status</th>
+            <th scope="col">Homeroom Class</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let classroomDetails of classroom">
+            <td>{{ classroomDetails.Grade }}</td>
+            <td>{{ classroomDetails.classroom_number }}</td>
+            <td>{{ classroomDetails.team }}</td>
+            <td>{{ classroomDetails.capacity }}</td>
+            <td>{{ classroomDetails.collect_attendence }}</td>
+            <td>{{ classroomDetails.attendence_status }}</td>
+            <td>{{ classroomDetails.homeroom_class }}</td>
+            <td>
+              <i class="bi" [ngClass]="{
+                'bi-check-circle-fill text-success': classroomDetails.status === 'Active',
+                'bi-x-circle-fill text-danger': classroomDetails.status === 'Inactive'
+              }" (click)="toggleDistrictStatus(classroomDetails)" style="cursor: pointer; font-size: 1.2rem;">
+              </i>
+            </td>
+            <td class="edit-delete-btn text-center">
+              <div class="d-flex justify-content-center align-items-center gap-2">
+                <a class="btn p-0" (click)="editClassroom(classroomDetails.id)" class="text-primary">
+                  <i class="bi bi-pencil-square fs-5"></i>
+                </a>
+                <a class="btn p-0" (click)="deleteClassroom(classroomDetails.id)" class="text-danger">
+                  <i class="bi bi-trash fs-5"></i>
+                </a>
+              </div>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      <!-- Modal for confirming status change -->
+      <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ 'DISTRICT_CALENDER.CONFIRMATION' | translate }}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to change the status of this Classroom?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'COMMON.CANCEL' | translate }}</button>
+              <button type="button" class="btn confirm-btn" (click)="confirmStatusChange()">{{ 'COMMON.CONFIRM' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for confirming delete -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ 'DISTRICT.CONFIRM_DISTRICT_DELETE' | translate }}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {{ 'DISTRICT.CONFIRM_DISTRICT_DELETE_STATEMENT' | translate }}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'COMMON.CANCEL' | translate }}</button>
+              <button type="button" class="btn confirm-btn" (click)="confirmDelete()">{{ 'COMMON.CONFIRM' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

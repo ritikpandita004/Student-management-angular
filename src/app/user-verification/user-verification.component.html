@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-4">
+      <div class="card shadow-lg rounded-lg border-0">
+        <h4 class="card-header text-center bg-primary text-white py-4">Set up Google Authenticator</h4>
+
+        <div class="card-body text-center">
+          <p class="lead mb-4">
+            Scan the barcode below using your Google Authenticator app or enter the code <strong class="fw-bold">{{secret}}</strong>.
+        </p>
+
+          <div class="mb-4">
+            <img *ngIf="QR_Image" [src]="QR_Image" alt="QR Code" class="img-fluid rounded">
+          </div>
+          <p class="mb-4">
+            You must set up your Google Authenticator app before continuing. You will be unable to log in otherwise.
+          </p>
+          <div class="mt-4 mb-3">
+            <button class="btn btn-success btn-lg px-4" (click)="proceedToOtpVerification()">Complete 2FA Setup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,310 @@
+<div class="container">
+  <div class="row">
+    <h3>Edit Admin</h3>
+    <hr class="mt-4 mb-4">
+
+    <!-- Form Start -->
+    <form [formGroup]="editAdminDetails" (submit)="editDetails()">
+
+      <div class="row">
+        <div class="col-md-6 mt-2">
+          <label for="firstname">First Name</label>
+          <input type="text" class="form-control" formControlName="first_name">
+          <div
+            *ngIf="editAdminDetails.get('first_name')?.errors?.['required'] && editAdminDetails.get('first_name')?.touched"
+            class="text-danger">
+            First name is required.
+          </div>
+          <div
+            *ngIf="editAdminDetails.get('first_name')?.errors?.['pattern'] && editAdminDetails.get('first_name')?.touched"
+            class="text-danger">
+            First name should only contain letters.
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-2">
+          <label for="lastname">Last Name</label>
+          <input type="text" class="form-control" formControlName="last_name">
+          <div
+            *ngIf="editAdminDetails.get('last_name')?.errors?.['required'] && editAdminDetails.get('last_name')?.touched"
+            class="text-danger">
+            Last name is required.
+          </div>
+          <div
+            *ngIf="editAdminDetails.get('last_name')?.errors?.['pattern'] && editAdminDetails.get('last_name')?.touched"
+            class="text-danger">
+            Last name should only contain letters.
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-2">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" formControlName="email" readonly>
+          <div *ngIf="editAdminDetails.get('email')?.invalid && editAdminDetails.get('email')?.touched"
+            class="text-danger">
+            <span *ngIf="editAdminDetails.get('email')?.errors?.['required']"> Email is required</span>
+            <span *ngIf="editAdminDetails.get('email')?.errors?.['pattern']">Email must be valid email</span>
+
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-2">
+          <label for="phone">Phone Number</label>
+          <input type="text" class="form-control" formControlName="phone" required>
+          <div *ngIf="editAdminDetails.get('phone')?.errors?.['required'] && editAdminDetails.get('phone')?.touched"
+            class="text-danger">
+            Office phone number is required.
+          </div>
+
+          <div *ngIf="editAdminDetails.get('phone')?.errors?.['minlength']&&editAdminDetails.get('phone')?.touched"
+            class="text-danger">The Phone number must be of 10 digits</div>
+
+          <div *ngIf="editAdminDetails.get('phone')?.errors?.['maxlength']&&editAdminDetails.get('phone')?.touched"
+            class="text-danger">Phone number must be of 10 digits</div>
+
+          <div *ngIf="editAdminDetails.get('phone')?.errors?.['pattern'] && editAdminDetails.get('phone')?.touched"
+            class="text-danger">
+            Enter valid phone number
+          </div>
+        </div>
+
+        <h3 class="mt-3">Mailing Address Information</h3>
+
+        <div class="col-md-12 mt-2">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" formControlName="address" required>
+          <!-- <div *ngIf="editAdminDetails.get('address')?.errors?.['required'] && editAdminDetails.get('address')?.touched" class="text-danger">
+            Address is required.
+          </div> -->
+        </div>
+
+        <div class="col-md-4 mt-2">
+          <label for="city">City</label>
+          <input type="text" class="form-control" formControlName="city" required>
+          <div *ngIf="editAdminDetails.get('city')?.errors?.['required'] && editAdminDetails.get('city')?.touched"
+            class="text-danger">
+            City is required.
+          </div>
+          <div *ngIf="editAdminDetails.get('city')?.errors?.['pattern'] && editAdminDetails.get('city')?.touched"
+            class="text-danger">
+            City name should only contain letters.
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-2">
+          <label for="state">State</label>
+          <input type="text" class="form-control" formControlName="state" required>
+          <div *ngIf="editAdminDetails.get('state')?.errors?.['required'] && editAdminDetails.get('state')?.touched"
+            class="text-danger">
+            State is required.
+          </div>
+          <div *ngIf="editAdminDetails.get('state')?.errors?.['pattern'] && editAdminDetails.get('state')?.touched"
+            class="text-danger">
+            State name should only contain letters.
+          </div>
+        </div>
+
+        <div class="col-md-4 mt-2">
+          <label for="zip">Zip</label>
+          <input type="text" class="form-control" formControlName="zip" required>
+          <div *ngIf="editAdminDetails.get('zip')?.errors?.['required'] && editAdminDetails.get('zip')?.touched"
+            class="text-danger">
+            Zip code is required.
+          </div>
+          <div *ngIf="editAdminDetails.get('zip')?.errors?.['pattern'] && editAdminDetails.get('zip')?.touched"
+            class="text-danger">
+            Zip code should be 6 digits.
+          </div>
+        </div>
+      </div>
+
+      <!-- District Access Section -->
+      <div class="mt-5">
+        <p>What district(s) will this admin have access to?</p>
+        <div class="d-flex mb-3">
+          <input class="form-control me-2 p-2" type="search" placeholder="Search by District Name" aria-label="Search">
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="table-light">
+              <tr class="text-center">
+                <th scope="col">Allow Access</th>
+                <th scope="col">District Name</th>
+                <th scope="col">State</th>
+                <th scope="col">City</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center" *ngFor="let district of editAdminDetails.get('district_access')?.value">
+                <td>
+                  <input type="checkbox" [checked]="district.id ? true : false" (change)="onDistrictChange($event, district.id)"
+                  [checked]="selectedDistricts.includes(district.id)">
+                </td>
+
+                <td>{{district.district_name}}</td>
+                <td>{{district.physical_state}}</td>
+                <td>{{district.physical_city}}</td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <div class="mt-5">
+        <p>What school(s) will this admin have access to?</p>
+        <div class="d-flex mb-3">
+          <input class="form-control me-2 p-2" type="search" placeholder="Search by School Name" aria-label="Search">
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="table-light">
+              <tr class="text-center">
+                <th scope="col">Allow Access</th>
+                <th scope="col">School Name</th>
+                <th scope="col">State</th>
+                <th scope="col">City</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let school of editAdminDetails.get('school_access')?.value" class="text-center">
+                <td>
+                  <input type="checkbox" [checked]="school.id ? true : false" (change)="onSchoolChange($event, school.id)"
+                  [checked]="selectedSchools.includes(school.id)">
+                </td>
+                <td>{{school.school_name}}</td>
+                <td>{{school.physical_city}}</td>
+                <td>{{school.physical_city}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Permissions Section -->
+      <div class="row mt-5">
+        <div class="col-md-5">
+          <p>Allow user to edit District Information?</p>
+        </div>
+        <div class="col-md-5">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="edit_district" value="yes"
+              id="edit_district_yes">
+            <label class="form-check-label" for="edit_district_yes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="edit_district" value="no"
+              id="edit_district_no">
+            <label class="form-check-label" for="edit_district_no">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <p>Allow user to add/edit District Calendar Years ?</p>
+        </div>
+        <div class="col-md-5">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="district_calendar" value="yes"
+              id="district_calendar_yes">
+            <label class="form-check-label" for="district_calendar_yes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="district_calendar" value="no"
+              id="district_calendar_no">
+            <label class="form-check-label" for="district_calendar_no">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <p>Allow user to add/edit School Calendar Years ?</p>
+        </div>
+        <div class="col-md-5">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="school_calendar" value="yes"
+              id="school_calendar_yes">
+            <label class="form-check-label" for="school_calendar_yes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="school_calendar" value="no"
+              id="school_calendar_no">
+            <label class="form-check-label" for="school_calendar_no">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <p>Allow user to add/edit Teachers ?</p>
+        </div>
+        <div class="col-md-5">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="teachers" value="yes" id="teachers_yes">
+            <label class="form-check-label" for="teachers_yes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="teachers" value="no" id="teachers_no">
+            <label class="form-check-label" for="teachers_no">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <p>Allow user to add/edit Students ?</p>
+        </div>
+        <div class="col-md-5">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="students" value="yes" id="students_yes">
+            <label class="form-check-label" for="students_yes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="students" value="no" id="students_no">
+            <label class="form-check-label" for="students_no">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <p>Allow user to add/edit School Information ?</p>
+        </div>
+        <div class="col-md-5">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="school_info" value="yes" id="school_info_yes">
+            <label class="form-check-label" for="school_info_yes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="school_info" value="no" id="school_info_no">
+            <label class="form-check-label" for="school_info_no">No</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- end -->
+
+      <!-- Notes Section -->
+      <div class="form-group mt-2">
+        <label for="notes">Notes</label>
+        <textarea class="form-control" id="notes" formControlName="notes" rows="3"
+          placeholder="Add notes here..."></textarea> <!-- Corrected formControlName -->
+      </div>
+      <!-- Form Submission -->
+      <div class="row mt-3 mb-3">
+        <div class="col-md-6 d-grid mt-2">
+          <button type="button" class="btn btn-secondary" (click)="cancelBtn()">Cancel</button>
+        </div>
+        <div class="col-md-6 d-grid mt-2">
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </div>
+      </div>
+    </form>
+    <!-- Form End -->
+  </div>
+</div>

@@ -1,0 +1,211 @@
+<div class="container card p-4 shadow mt-2 mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="m-2">Add Student</h3>
+    </div>
+    <hr>
+    <p>Click the "+ Add" to add a new Student to school or click "Upload" to upload a full list of students.
+      Download the template <a href="">HERE</a> for uploading.</p>
+
+    <div class="col-md-2 d-grid">
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="mb-3">
+        <img src="assets/images (4).jpeg" class="rounded float-left m-2" alt="...">
+        <label for="formFile" class="form-label"> </label>
+        <input class="form-control" type="file" id="formFile" formControlName="schoolImage">
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <form [formGroup]="students" (submit)="onSubmit()">
+      <div class="row mt-2">
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">RFID Tag Number</label>
+          <input type="text" class="form-control" formControlName="rfidTagNumber" placeholder="enter first name">
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="exampleInputPassword1">First Name</label>
+          <input type="text" class="form-control" formControlName="studentFirstName" placeholder="enter last name">
+        </div>
+      </div>
+
+
+      <div class="row mt-3">
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Last Name</label>
+          <input type="text" class="form-control" formControlName="studentLastName" aria-describedby="emailHelp"
+            placeholder="enter grade">
+
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleInputPassword1">Email</label>
+          <input type="text" class="form-control" formControlName="studentEmail" placeholder="enter room number">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputPassword1">ID #
+          </label>
+          <input type="text" class="form-control" formControlName="studentIdNumber" placeholder="Password">
+        </div>
+      </div>
+
+
+      <div class="row mt-3">
+        <h5>Guardian Information</h5>
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">First Name</label>
+          <input type="text" class="form-control" formControlName="guardianFirstName" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">Last Name</label>
+          <input type="text" class="form-control" formControlName="guardianLastName" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+      </div>
+
+
+      <div class="row mt-3">
+
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="text" class="form-control" formControlName="guardianEmail" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">Phone Number</label>
+          <input type="text" class="form-control" formControlName="guardianPhoneNumber" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+      </div>
+
+
+
+      <div class="row mt-3">
+        <h5>Mailing Address Information</h5>
+        <div class="form-group col-md-12">
+          <label for="exampleInputEmail1">Address</label>
+          <input type="text" class="form-control" formControlName="mailingAddress" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+      </div>
+
+
+      <div class="row mt-3">
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">City</label>
+          <input type="text" class="form-control" formControlName="mailingCity" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">State</label>
+          <input type="text" class="form-control" formControlName="mailingState" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Zip</label>
+          <input type="text" class="form-control" formControlName="mailingZip" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+
+      <div class="row mt-3">
+        <h5>School Information</h5>
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">School District</label>
+          <input type="text" class="form-control" formControlName="schoolDistrict" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="exampleInputEmail1">School
+          </label>
+          <input type="text" class="form-control" formControlName="schoolName" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+      </div>
+
+
+      <div class="row mt-3">
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Teacher</label>
+          <input type="text" class="form-control" formControlName="teacherName" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Grade
+          </label>
+          <input type="text" class="form-control" formControlName="grade" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="exampleInputEmail1">Room Number</label>
+          <input type="text" class="form-control" formControlName="roomNumber" aria-describedby="emailHelp"
+            placeholder="Address">
+
+        </div>
+
+
+
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1"></label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="notes" rows="3" placeholder="Notes"></textarea>
+      </div>
+
+
+      <div class="row mt-5 mb-3">
+        <div class="col-md-6 d-grid">
+          <button type="button" (click)="cancelbtn()" class="btn btn-secondary">Cancel</button>
+        </div>
+        <div class="col-md-6 d-grid">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</div>

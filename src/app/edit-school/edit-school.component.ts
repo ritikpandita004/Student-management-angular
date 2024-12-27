@@ -100,6 +100,10 @@ export class EditSchoolComponent implements OnInit {
 
   addEditSchoolCalendar(id:any){
 
-    this.router.navigate(['dashboard/school-calendar',id])
+    this.router.navigate(['dashboard/school-calendar',id]);
+  }
+
+  backTOSchool(){
+    this.router.navigate(['/dashboard/schoolInfo']);
   }
 }

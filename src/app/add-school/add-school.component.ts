@@ -43,7 +43,9 @@ export class AddSchoolComponent implements OnInit {
      ] ),
       OfficeEmail: new FormControl('', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')
+        Validators.pattern(
+          '^(?![a-zA-Z0-9._%+-]+@(yopmail\\.com|mailinator\\.com|tempmail\\.com|disposablemail\\.com|trashmail\\.com))^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.com$'
+        ),
       ]),
       OfficePhoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10),Validators.pattern('^[0-9]+$') ]),
 
@@ -94,7 +96,9 @@ export class AddSchoolComponent implements OnInit {
 
       principal_phoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10),Validators.pattern('^[0-9]+$') ]),
 
-      principal_email: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')]),
+      principal_email: new FormControl('', [Validators.required,   Validators.pattern(
+        '^(?![a-zA-Z0-9._%+-]+@(yopmail\\.com|mailinator\\.com|tempmail\\.com|disposablemail\\.com|trashmail\\.com))^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.com$'
+      ),]),
 
       notes: new FormControl(''),
 

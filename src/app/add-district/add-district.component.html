@@ -50,10 +50,10 @@
             <input type="text" class="form-control" id="School-Year" formControlName="schoolYear" placeholder="{{'PLACEHOLDER.SCHOOL_YEAR' | translate }}">
             <div *ngIf="districtForm.get('schoolYear')?.invalid && districtForm.get('schoolYear')?.touched" class="text-danger">
               <div *ngIf="districtForm.get('schoolYear')?.errors?.['required']">
-                  {{'ERRORS.DISTRICT.DISTRICT_CODE' | translate}}
+                  {{'ERRORS.DISTRICT.SCHOOL_YEAR' | translate}}
               </div>
               <div *ngIf="districtForm.get('schoolYear')?.errors?.['pattern']">
-                  {{'ERRORS.DISTRICT.DISTRICT_CODE_NUMBER' | translate}}
+                  {{'ERRORS.DISTRICT.SCHOOL_YEAR_NUMBER' | translate}}
               </div>
           </div>
           </div>

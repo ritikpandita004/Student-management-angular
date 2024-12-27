@@ -9,6 +9,9 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root'
 })
 export class LoginService {
+  verifyBackupCode(userId: string, backupCode: string) {
+    throw new Error('Method not implemented.');
+  }
   private language: string = 'en';
 
   constructor(
@@ -342,6 +345,14 @@ verifyOtp(otp: string, id: string, google2fa_secret: string) {
 
 
 
+verifyBackupCodes(id: string, otp: string, google2fa_secret: string) {
+  return this.client.post<any>(`http://localhost:8000/api/complete-registration-by-backup-code`, {
+    id,
+    backup_code: otp,
+  }).toPromise();
+}
+
+
 deleteStudent(id:any):Promise<any>{
   return this.client.delete(`http://localhost:8000/api/student/delete-student/${id}`,{ headers: this.getHeaders() }).toPromise();
 }
@@ -357,6 +368,10 @@ getstudentById(id:any):Promise<any>{
 changeStudentStatus(id:any):Promise<any>{
   return this.client.post(`http://localhost:8000/api/student/change-student-status/${id}`,{ headers: this.getHeaders() }).toPromise();
 }
+
+
+getBackupCodes(userId: string): Observable<any> {
+  return this.client.get<any>(`http://localhost:8000/api/get-backup-codes/${userId}`);
 }
 
 
@@ -364,4 +379,4 @@ changeStudentStatus(id:any):Promise<any>{
 
 
 
-
+}

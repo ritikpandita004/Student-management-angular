@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { LoginService } from '../service/login.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class EditSchoolCalendarComponent implements OnInit {
   schoolCalenderId:any;
   schoolCalendarDetails:any
-  constructor(private client:LoginService, private Route:ActivatedRoute, private toastr:ToastrService) {
+  constructor(private client:LoginService, private Route:ActivatedRoute, private toastr:ToastrService, private Router:Router) {
     this.Route.paramMap.subscribe((params: ParamMap) => {
       let id = params.get('id');
       this.schoolCalenderId=id || "";
@@ -36,6 +36,7 @@ export class EditSchoolCalendarComponent implements OnInit {
 
     .then((response: any) => {
       if (response && response.success) {
+        this.Router.navigate(['dashboard/school-calendar','all'])
         this.toastr.success(response.message);
       } else {
         console.error('Failed to update profile:', response.message);
@@ -60,5 +61,10 @@ export class EditSchoolCalendarComponent implements OnInit {
       }
 
     });
+  }
+
+
+  backToSchoolCalendar(){
+    this.Router.navigate(['dashboard/school-calendar','all'])
   }
 }

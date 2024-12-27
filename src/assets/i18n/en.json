@@ -71,8 +71,8 @@
     },
 
     "DISTRICT":{
-      "DISTRICT_CODE":"DISTRICT code is reqiured",
-      "DISTRICT_CODE_NUMBER": "It should only be numbers",
+      "DISTRICT_CODE":"District code is reqiured",
+      "DISTRICT_CODE_NUMBER": "District Code must be a number",
       "DISTRICT_NAME_APHA":"The District name must be a alphabet",
       "DISTRICT_NAME":"District Name is required",
       "SCHOOL_YEAR":"School Year is required",

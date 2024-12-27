@@ -37,11 +37,12 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { UserVerificationComponent } from './user-verification/user-verification.component';
 import { UserVerificationCheckComponent } from './user-verification-check/user-verification-check.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
+import { VerifyByBackupCodesComponent } from './verify-by-backup-codes/verify-by-backup-codes.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [AuthGuardForNoTokenGuard] },
   { path: '2fa-verification', component: UserVerificationComponent, canActivate: [AuthGuardForNoTokenGuard] },
-
+  { path: 'back-code-page/:id', component: VerifyByBackupCodesComponent, canActivate: [AuthGuardForNoTokenGuard] },
   {   path: 'user-verification-check/:id',  component: UserVerificationCheckComponent, canActivate: [AuthGuardForNoTokenGuard] },
 
   { path: 'forgotPassword', component: ForgotPasswordComponent, canActivate: [AuthGuardForNoTokenGuard] },

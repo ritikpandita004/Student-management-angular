@@ -30,6 +30,7 @@
     "bootstrap-icons": "^1.11.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.7.1",
+    "jspdf": "^2.5.2",
     "material-icons": "^1.13.12",
     "ngx-spinner": "^14.0.0",
     "ngx-toastr": "^15.2.2",

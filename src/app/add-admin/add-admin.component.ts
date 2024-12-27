@@ -42,7 +42,9 @@ export class AddAdminComponent implements OnInit {
     ]),
     email: new FormControl('', [
       Validators.required,
-      Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')
+      Validators.pattern(
+        '^(?![a-zA-Z0-9._%+-]+@(yopmail\\.com|mailinator\\.com|tempmail\\.com|disposablemail\\.com|trashmail\\.com))^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.com$'
+      ),
     ]),
     phone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10),Validators.pattern('^[0-9]+$') ]),
     address: new FormControl('', Validators.required),

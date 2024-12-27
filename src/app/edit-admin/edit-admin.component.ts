@@ -53,44 +53,59 @@ export class EditAdminComponent implements OnInit {
       Validators.required,
       Validators.pattern('^[a-zA-Z]+$')
     ]),
+
     last_name: new FormControl('', [
       Validators.required,
       Validators.pattern('^[a-zA-Z]+$')
     ]),
+
     email: new FormControl('', [
       Validators.required,
       Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')
     ]),
+
     phone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]+$')]),
+
     address: new FormControl('', Validators.required),
+
     city: new FormControl('', [Validators.required,
     Validators.pattern('^[a-zA-Z]+$'),
-
     ]),
+
     state: new FormControl('', [Validators.required,
     Validators.pattern('^[a-zA-Z]+$'),
 
     ]),
+
     zip: new FormControl('', [Validators.required,
     Validators.pattern('^[0-9]*$'),
     Validators.minLength(6),
     Validators.maxLength(6)
     ]),
+
     district_access: new FormControl([]),
+
     school_access: new FormControl([]),
+
     edit_district: new FormControl('no'),
+
     district_calendar: new FormControl('no'),
+
     school_calendar: new FormControl('no'),
+
     teachers: new FormControl('no'),
+
     students: new FormControl('no'),
+
     school_info: new FormControl('no'),
+
     notes: new FormControl('')
 
   });
+
   cancelBtn() {
     this.Route.navigate(['dashboard/admin']);
   }
-
 
   getEditAdminView() {
     this.client.getAdminEditDetails(this.adminId).then((response) => {
@@ -106,11 +121,8 @@ export class EditAdminComponent implements OnInit {
           city: this.adminDetails.userDetails.City,
           state: this.adminDetails.userDetails.State,
           zip: this.adminDetails.userDetails.Zipcode,
-
           district_access: this.adminDetails.districts,
           school_access: this.adminDetails.schools,
-
-
           edit_district: this.adminDetails.adminDetails.edit_District_Information,
           district_calendar: this.adminDetails.adminDetails.add_edit_District_Calendar_Years,
           school_calendar: this.adminDetails.adminDetails.add_edit_School_Calendar_Years,
@@ -118,38 +130,33 @@ export class EditAdminComponent implements OnInit {
           students: this.adminDetails.adminDetails.add_edit_Students,
           school_info: this.adminDetails.adminDetails.add_edit_School_Information,
           notes: this.adminDetails.adminDetails.notes,
-
         })
-
-
       }
+
       else {
         this.tostr.error("something went wrong")
       }
     })
   }
 
-
   editDetails() {
 
   }
-
-
   onDistrictChange(event: any, districtId: number) {
     if (event.target.checked) {
       this.selectedDistricts.push(districtId);
-    } else {
+    }
+    else
+    {
       const index = this.selectedDistricts.indexOf(districtId);
-      if (index !== -1) {
+      if (index !== -1)
+      {
         this.selectedDistricts.splice(index, 1);
       }
     }
 
     this.getSchoolsForSelectedDistricts();
   }
-
-
-
   onSchoolChange(event: any, schoolId: number) {
     if (event.target.checked) {
       this.selectedSchools.push(schoolId);
@@ -160,7 +167,6 @@ export class EditAdminComponent implements OnInit {
       }
     }
   }
-
   getSchoolsForSelectedDistricts() {
     if (this.selectedDistricts.length === 0) {
       this.schoolData = [];
@@ -168,14 +174,18 @@ export class EditAdminComponent implements OnInit {
     }
 
     this.client.getSchoolsByDistricts(this.selectedDistricts).then((response: { success: boolean, data: School[], message: string }) => {
-      if (response.success) {
+      if (response.success)
+      {
         this.schoolData = response.data;
-      } else {
+      }
+      else
+      {
         this.tostr.error(response.message);
       }
     }).catch(() => {
       this.tostr.error('Failed to fetch schools');
     });
+
   }
 
 

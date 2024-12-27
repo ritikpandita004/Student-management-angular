@@ -53,6 +53,7 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { UserVerificationComponent } from './user-verification/user-verification.component';
 import { UserVerificationCheckComponent } from './user-verification-check/user-verification-check.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
+import { VerifyByBackupCodesComponent } from './verify-by-backup-codes/verify-by-backup-codes.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -100,6 +101,7 @@ export function HttpLoaderFactory(http: HttpClient) {
      UserVerificationComponent,
      UserVerificationCheckComponent,
      EditStudentComponent,
+     VerifyByBackupCodesComponent,
   ],
   imports: [
     BrowserModule,

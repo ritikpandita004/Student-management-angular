@@ -13,28 +13,18 @@
     </p>
 
     <!-- OTP Input Field -->
-    <form class="form-horizontal" (ngSubmit)="loginUser()">
+    <form class="form-horizontal" (ngSubmit)="verifyBackupCode()">
       <div class="mb-3">
-        <label for="one_time_password" class="form-label fw-semibold">Enter the 6-digit code</label>
-        <input id="one_time_password" type="text" class="form-control text-center fw-bold" [(ngModel)]="otp"
-          name="one_time_password" required autofocus maxlength="6" autocomplete="off" />
+        <label for="one_time_password" class="form-label fw-semibold">Enter the 8-digit backup code</label>
+        <input id="one_time_password" type="text" class="form-control text-center fw-bold" [(ngModel)]="backupCode"
+          name="one_time_password" required autofocus maxlength="8" autocomplete="off" />
       </div>
 
       <!-- Logout Link -->
-      <!-- <div class="text-end mb-3">
-        <a (click)="onLogout()" class="text-success fw-semibold" style="cursor: pointer;">Back to login</a>
-      </div> -->
-
       <div class="text-end mb-3">
-        <a (click)="redirectToBackupCodePage(userId)" class="text-success fw-semibold" style="cursor: pointer;">Login by
-          backup code</a>
+        <a class="text-success fw-semibold" style="cursor: pointer;" (click)="onLogout()">Back to login</a>
       </div>
 
-
-      <!-- <div class="mb-3">
-        <button type="button" class="btn btn-success w-100 fw-bold" style="cursor: pointer;"
-          (click)="redirectToBackupCodePage(userId)">Login using backup codes</button>
-      </div> -->
       <!-- Submit Button -->
       <div class="mb-3">
         <button type="submit" class="btn btn-success w-100 fw-bold" style="cursor: pointer;">Continue</button>

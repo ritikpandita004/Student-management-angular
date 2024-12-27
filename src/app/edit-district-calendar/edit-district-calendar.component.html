@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 m-5">
+    <div class="col-md-12 mt-5">
       <h3>{{'DISTRICT_CALENDER.EDIT_DISTRICT_CALENDAR'| translate}}</h3>
-    </div>
+    </div><hr>
   </div>
 
   <div class="row">
@@ -10,7 +10,7 @@
       <form [formGroup]="EditDistrictCalendar" (submit)="editDistrictCalenderInfo()" >
         <div class="row mb-3">
           <div class="col-md-5">
-            <div class="form-group">
+            <div class="form-group mt-2">
               <label for="exampleFormControlSelect1">{{'DISTRICT_CALENDER.DISTRICT_NAME'| translate}}</label>
               <select class="form-control" id="exampleFormControlSelect1" formControlName="districtName">
                 <option *ngFor="let district of districtData" [value]="district.district_name">
@@ -21,7 +21,7 @@
           </div>
 
           <div class="col-md-5">
-            <div class="form-group">
+            <div class="form-group mt-2">
               <label for="exampleFormControlInput1">{{'DISTRICT_CALENDER.DISTRICT_CALENDAR'| translate}}</label>
               <input type="text" class="form-control" placeholder="Calendar Name" formControlName="calendarName">
               <div *ngIf="EditDistrictCalendar.get('calendarName')?.invalid && EditDistrictCalendar.get('calendarName')?.touched" class="text-danger">
@@ -50,10 +50,10 @@
         </div>
 
         <div class="row">
-          <div class="col-md-5 d-grid">
+          <div class="col-md-5 d-grid mt-2">
             <button type="button" (click)="cancelbtn()" class="btn btn-secondary">{{"COMMON.CANCEL" | translate }}</button>
           </div>
-          <div class="col-md-5 d-grid">
+          <div class="col-md-5 d-grid mt-2">
             <button type="submit" class="btn btn-primary">{{"COMMON.EDIT" | translate }}</button>
           </div>
         </div>
